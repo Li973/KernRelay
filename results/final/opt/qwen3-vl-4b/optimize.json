@@ -1,0 +1,256 @@
+{
+ "project": "<KERNRELAY_CACHE>/qwen3-vl-4b",
+ "cache": "<KERNRELAY_CACHE>/qwen3-vl-4b",
+ "kind": "kernrelay",
+ "summary": {
+  "arch": "qwen3_vl",
+  "seq": 2048,
+  "hidden": 2560,
+  "layers": 36,
+  "nodes": 543,
+  "edges": 722,
+  "unique_shapes": 14,
+  "inventory": [
+   {
+    "key": "add_rmsnorm|2048x2560",
+    "op": "add_rmsnorm",
+    "count": 72,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "matmul|2048x2560x1024",
+    "op": "matmul",
+    "count": 72,
+    "engines": [
+     "aic"
+    ]
+   },
+   {
+    "key": "matmul|2048x2560x9728",
+    "op": "matmul",
+    "count": 72,
+    "engines": [
+     "aic"
+    ]
+   },
+   {
+    "key": "rmsnorm|2048x2560",
+    "op": "rmsnorm",
+    "count": 37,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "attention|1x32x2048x128",
+    "op": "attention",
+    "count": 36,
+    "engines": [
+     "aicore"
+    ]
+   },
+   {
+    "key": "matmul|2048x2560x4096",
+    "op": "matmul",
+    "count": 36,
+    "engines": [
+     "aic"
+    ]
+   },
+   {
+    "key": "matmul|2048x4096x2560",
+    "op": "matmul",
+    "count": 36,
+    "engines": [
+     "aic"
+    ]
+   },
+   {
+    "key": "matmul|2048x9728x2560",
+    "op": "matmul",
+    "count": 36,
+    "engines": [
+     "aic"
+    ]
+   },
+   {
+    "key": "mul|2048x9728",
+    "op": "mul",
+    "count": 36,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "rmsnorm|65536x128",
+    "op": "rmsnorm",
+    "count": 36,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "rope|2048x4096",
+    "op": "rope",
+    "count": 36,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "silu|2048x9728",
+    "op": "silu",
+    "count": 36,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "embedding|2048x2560",
+    "op": "embedding",
+    "count": 1,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "matmul|2048x2560x151936",
+    "op": "matmul",
+    "count": 1,
+    "engines": [
+     "aic"
+    ]
+   }
+  ]
+ },
+ "plan": {
+  "base_makespan_us": 88808.0239999999,
+  "planned_makespan_us": 88808.0239999999,
+  "splits": {}
+ },
+ "profile_table": {
+  "embedding": {
+   "1": 18.261,
+   "2": 22.172,
+   "4": 31.132,
+   "8": 45.122
+  },
+  "rmsnorm": {
+   "1": 44.593,
+   "2": 49.826,
+   "4": 62.281,
+   "8": 85.27
+  },
+  "add": {
+   "1": 19.597,
+   "2": 21.211,
+   "4": 26.383,
+   "8": 34.981
+  },
+  "add_rmsnorm": {
+   "1": 62.661,
+   "2": 68.425,
+   "4": 80.426,
+   "8": 103.069
+  },
+  "rope": {
+   "1": 55.725,
+   "2": 64.555,
+   "4": 81.634,
+   "8": 118.098
+  },
+  "matmul_q": {
+   "1": 167.915,
+   "2": 184.672,
+   "4": 217.644,
+   "8": 236.039
+  },
+  "matmul_k": {
+   "1": 56.25,
+   "2": 60.466,
+   "4": 70.961,
+   "8": 116.295
+  },
+  "matmul_v": {
+   "1": 55.624,
+   "2": 60.043,
+   "4": 70.242,
+   "8": 116.375
+  },
+  "attention": {
+   "1": 367.801,
+   "2": 454.283,
+   "4": 672.014,
+   "8": 969.241
+  },
+  "matmul_o": {
+   "1": 165.659,
+   "2": 173.334,
+   "4": 180.186,
+   "8": 198.29
+  },
+  "matmul_gate": {
+   "1": 380.069,
+   "2": 397.886,
+   "4": 415.009,
+   "8": 439.662
+  },
+  "matmul_up": {
+   "1": 380.5,
+   "2": 398.521,
+   "4": 414.459,
+   "8": 440.144
+  },
+  "silu": {
+   "1": 63.456,
+   "2": 65.485,
+   "4": 70.778,
+   "8": 79.741
+  },
+  "mul": {
+   "1": 58.566,
+   "2": 60.558,
+   "4": 64.874,
+   "8": 74.801
+  },
+  "matmul_down": {
+   "1": 375.972,
+   "2": 383.882,
+   "4": 396.166,
+   "8": 419.364
+  },
+  "matmul_lm": {
+   "1": 8725.45,
+   "2": 10219.0,
+   "4": 13267.7,
+   "8": 19638.6
+  }
+ },
+ "runs": {
+  "single": {
+   "mode": "graph_whole",
+   "seq": 2048,
+   "device": 7,
+   "warmup": 1,
+   "iters": 3,
+   "best_us": 99412.4,
+   "typical_us": 99506.1,
+   "samples_us": [
+    99508.1,
+    99412.4,
+    99506.1
+   ],
+   "argmax": 151645,
+   "ref_argmax": 151645,
+   "maxdiff": 0.09375,
+   "abs_mean": 4.29006,
+   "flag_edges": 0,
+   "flag_timeouts": 0,
+   "host_best_us": 39.77,
+   "host_typical_us": 48.63,
+   "_rc": 0
+  }
+ }
+}

@@ -1,0 +1,283 @@
+{
+ "description": "E1 measured split curves (k=1..16): total time of k consecutive tiles",
+ "cases": [
+  {
+   "case": "mm_mid",
+   "op": "matmul",
+   "strategy": "row",
+   "shape": {
+    "M": 8192,
+    "K": 1024,
+    "N": 2048
+   },
+   "base_best_us": 256.921,
+   "fit": {
+    "slope_us_per_tile": 6.069049731182797,
+    "intercept_us": 259.4302916666667,
+    "mape_all": 0.022069695749087202,
+    "holdout_k": 16.0,
+    "holdout_ape": 0.05610032706791429
+   }
+  },
+  {
+   "case": "mm_large",
+   "op": "matmul",
+   "strategy": "row",
+   "shape": {
+    "M": 32768,
+    "K": 1024,
+    "N": 2048
+   },
+   "base_best_us": 635.061,
+   "fit": {
+    "slope_us_per_tile": 7.613444207533761,
+    "intercept_us": 645.4251691542289,
+    "mape_all": 0.030592644541321757,
+    "holdout_k": 32.0,
+    "holdout_ape": 0.16931194681932457
+   }
+  },
+  {
+   "case": "mm_24576",
+   "op": "matmul",
+   "strategy": "row",
+   "shape": {
+    "M": 24576,
+    "K": 1024,
+    "N": 2048
+   },
+   "base_best_us": 504.031,
+   "fit": {
+    "slope_us_per_tile": 9.191575562700962,
+    "intercept_us": 504.1128971061093,
+    "mape_all": 0.015168164077828743,
+    "holdout_k": 12.0,
+    "holdout_ape": 0.02972647377846291
+   }
+  },
+  {
+   "case": "gelu_large",
+   "op": "gelu",
+   "strategy": "row",
+   "shape": {
+    "rows": 32768,
+    "cols": 2048
+   },
+   "base_best_us": 413.421,
+   "fit": {
+    "slope_us_per_tile": 3.4093830845771147,
+    "intercept_us": 401.23881094527366,
+    "mape_all": 0.0177087109831502,
+    "holdout_k": 32.0,
+    "holdout_ape": 0.05528426644373475
+   }
+  },
+  {
+   "case": "softmax_large",
+   "op": "softmax",
+   "strategy": "row",
+   "shape": {
+    "rows": 32768,
+    "cols": 2048
+   },
+   "base_best_us": 576.891,
+   "fit": {
+    "slope_us_per_tile": 7.2535607675906215,
+    "intercept_us": 564.6286119402985,
+    "mape_all": 0.007407242280055629,
+    "holdout_k": 32.0,
+    "holdout_ape": 0.006783877157566186
+   }
+  },
+  {
+   "case": "layernorm_large",
+   "op": "layernorm",
+   "strategy": "row",
+   "shape": {
+    "rows": 32768,
+    "cols": 2048
+   },
+   "base_best_us": 826.021,
+   "fit": {
+    "slope_us_per_tile": 9.013046197583511,
+    "intercept_us": 793.5913482587066,
+    "mape_all": 0.012289529201114596,
+    "holdout_k": 32.0,
+    "holdout_ape": 0.006510954082944743
+   }
+  },
+  {
+   "case": "cast_large",
+   "op": "cast",
+   "strategy": "row",
+   "shape": {
+    "rows": 32768,
+    "cols": 2048
+   },
+   "base_best_us": 452.65,
+   "fit": {
+    "slope_us_per_tile": 2.1296204690831564,
+    "intercept_us": 439.8196517412935,
+    "mape_all": 0.01185362988006649,
+    "holdout_k": 32.0,
+    "holdout_ape": 0.002160264358686048
+   }
+  },
+  {
+   "case": "mm_balanced_col",
+   "op": "matmul",
+   "strategy": "col",
+   "shape": {
+    "M": 65536,
+    "K": 2048,
+    "N": 4096
+   },
+   "base_best_us": 4107.259,
+   "fit": {
+    "slope_us_per_tile": 144.38745564516125,
+    "intercept_us": 4431.945374999999,
+    "mape_all": 0.049111424841873155,
+    "holdout_k": 16.0,
+    "holdout_ape": 0.026022900044818813
+   }
+  },
+  {
+   "case": "gelu_huge",
+   "op": "gelu",
+   "strategy": "row",
+   "shape": {
+    "rows": 131072,
+    "cols": 4096
+   },
+   "base_best_us": 2330.466,
+   "fit": {
+    "slope_us_per_tile": 3.6346559139784893,
+    "intercept_us": 2318.4083333333333,
+    "mape_all": 0.002984772294389154,
+    "holdout_k": 16.0,
+    "holdout_ape": 0.009221131601593076
+   }
+  },
+  {
+   "case": "layernorm_huge",
+   "op": "layernorm",
+   "strategy": "row",
+   "shape": {
+    "rows": 131072,
+    "cols": 4096
+   },
+   "base_best_us": 5555.153,
+   "fit": {
+    "slope_us_per_tile": 7.792034946236531,
+    "intercept_us": 5552.501583333333,
+    "mape_all": 0.0009259699706572506,
+    "holdout_k": 16.0,
+    "holdout_ape": 0.0030501805175633845
+   }
+  },
+  {
+   "case": "add_huge",
+   "op": "add",
+   "strategy": "row",
+   "shape": {
+    "rows": 131072,
+    "cols": 4096
+   },
+   "base_best_us": 2887.206,
+   "fit": {
+    "slope_us_per_tile": 0.36212365591398804,
+    "intercept_us": 2883.1368333333335,
+    "mape_all": 0.010000576243973143,
+    "holdout_k": 16.0,
+    "holdout_ape": 0.050384086547305036
+   }
+  },
+  {
+   "case": "softmax_huge",
+   "op": "softmax",
+   "strategy": "row",
+   "shape": {
+    "rows": 131072,
+    "cols": 4096
+   },
+   "base_best_us": 3615.557,
+   "fit": {
+    "slope_us_per_tile": 5.598181451612928,
+    "intercept_us": 3603.0148750000003,
+    "mape_all": 0.0021495626477262882,
+    "holdout_k": 16.0,
+    "holdout_ape": 0.014040500014856312
+   }
+  },
+  {
+   "case": "cast_huge",
+   "op": "cast",
+   "strategy": "row",
+   "shape": {
+    "rows": 131072,
+    "cols": 4096
+   },
+   "base_best_us": 2648.326,
+   "fit": {
+    "slope_us_per_tile": 0.8622056451612918,
+    "intercept_us": 2624.3461249999996,
+    "mape_all": 0.005191212406007856,
+    "holdout_k": 16.0,
+    "holdout_ape": 0.026923291921011516
+   }
+  },
+  {
+   "case": "topk_huge",
+   "op": "topk",
+   "strategy": "row",
+   "shape": {
+    "rows": 8192,
+    "cols": 4096,
+    "k": 128
+   },
+   "base_best_us": 1521.228,
+   "fit": {
+    "slope_us_per_tile": 12.039352150537624,
+    "intercept_us": 1501.7744166666666,
+    "mape_all": 0.006618584907266955,
+    "holdout_k": 16.0,
+    "holdout_ape": 0.024567767111886036
+   }
+  },
+  {
+   "case": "sort_huge",
+   "op": "sort",
+   "strategy": "row",
+   "shape": {
+    "rows": 4096,
+    "cols": 4096
+   },
+   "base_best_us": 959.892,
+   "fit": {
+    "slope_us_per_tile": 12.528010752688166,
+    "intercept_us": 939.9903333333334,
+    "mape_all": 0.0086011634250104,
+    "holdout_k": 16.0,
+    "holdout_ape": 0.043967401811904054
+   }
+  },
+  {
+   "case": "embedding_huge",
+   "op": "embedding",
+   "strategy": "row",
+   "shape": {
+    "rows": 65536,
+    "cols": 1024,
+    "vocab": 32000
+   },
+   "base_best_us": 202.921,
+   "fit": {
+    "slope_us_per_tile": 6.076657258064515,
+    "intercept_us": 190.609125,
+    "mape_all": 0.02577635565230884,
+    "holdout_k": 16.0,
+    "holdout_ape": 0.10773455846638536
+   }
+  }
+ ]
+}

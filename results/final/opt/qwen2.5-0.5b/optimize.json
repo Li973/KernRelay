@@ -1,0 +1,238 @@
+{
+ "project": "<KERNRELAY_CACHE>/qwen2.5-0.5b",
+ "cache": "<KERNRELAY_CACHE>/qwen2.5-0.5b",
+ "kind": "kernrelay",
+ "summary": {
+  "arch": "qwen2.5",
+  "seq": 2048,
+  "hidden": 896,
+  "layers": 24,
+  "nodes": 339,
+  "edges": 434,
+  "unique_shapes": 12,
+  "inventory": [
+   {
+    "key": "add_rmsnorm|2048x896",
+    "op": "add_rmsnorm",
+    "count": 48,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "matmul|2048x896x128",
+    "op": "matmul",
+    "count": 48,
+    "engines": [
+     "aic"
+    ]
+   },
+   {
+    "key": "matmul|2048x896x4864",
+    "op": "matmul",
+    "count": 48,
+    "engines": [
+     "aic"
+    ]
+   },
+   {
+    "key": "matmul|2048x896x896",
+    "op": "matmul",
+    "count": 48,
+    "engines": [
+     "aic"
+    ]
+   },
+   {
+    "key": "rmsnorm|2048x896",
+    "op": "rmsnorm",
+    "count": 25,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "attention|1x14x2048x64",
+    "op": "attention",
+    "count": 24,
+    "engines": [
+     "aicore"
+    ]
+   },
+   {
+    "key": "matmul|2048x4864x896",
+    "op": "matmul",
+    "count": 24,
+    "engines": [
+     "aic"
+    ]
+   },
+   {
+    "key": "mul|2048x4864",
+    "op": "mul",
+    "count": 24,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "rope|2048x896",
+    "op": "rope",
+    "count": 24,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "silu|2048x4864",
+    "op": "silu",
+    "count": 24,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "embedding|2048x896",
+    "op": "embedding",
+    "count": 1,
+    "engines": [
+     "aiv"
+    ]
+   },
+   {
+    "key": "matmul|2048x896x151936",
+    "op": "matmul",
+    "count": 1,
+    "engines": [
+     "aic"
+    ]
+   }
+  ]
+ },
+ "plan": {
+  "base_makespan_us": 21106.278999999973,
+  "planned_makespan_us": 21106.278999999973,
+  "splits": {}
+ },
+ "profile_table": {
+  "embedding": {
+   "1": 14.038,
+   "2": 17.194,
+   "4": 25.166,
+   "8": 40.444
+  },
+  "rmsnorm": {
+   "1": 29.683,
+   "2": 40.311,
+   "4": 45.438,
+   "8": 68.76
+  },
+  "add": {
+   "1": 13.656,
+   "2": 15.903,
+   "4": 19.643,
+   "8": 29.096
+  },
+  "add_rmsnorm": {
+   "1": 28.005,
+   "2": 35.4,
+   "4": 49.701,
+   "8": 67.057
+  },
+  "rope": {
+   "1": 27.318,
+   "2": 37.578,
+   "4": 59.776,
+   "8": 83.247
+  },
+  "matmul_q": {
+   "1": 31.407,
+   "2": 38.107,
+   "4": 52.573,
+   "8": 62.933
+  },
+  "matmul_k": {
+   "1": 11.714,
+   "2": 16.854,
+   "4": 25.735,
+   "8": 46.352
+  },
+  "matmul_v": {
+   "1": 12.146,
+   "2": 16.879,
+   "4": 26.244,
+   "8": 46.575
+  },
+  "attention": {
+   "1": 196.622,
+   "2": 282.898
+  },
+  "matmul_o": {
+   "1": 31.327,
+   "2": 37.867,
+   "4": 52.67,
+   "8": 63.041
+  },
+  "matmul_gate": {
+   "1": 99.606,
+   "2": 104.592,
+   "4": 132.08,
+   "8": 136.173
+  },
+  "matmul_up": {
+   "1": 99.23,
+   "2": 104.5,
+   "4": 132.916,
+   "8": 136.94
+  },
+  "silu": {
+   "1": 36.605,
+   "2": 38.854,
+   "4": 43.042,
+   "8": 52.011
+  },
+  "mul": {
+   "1": 37.342,
+   "2": 39.583,
+   "4": 44.467,
+   "8": 53.417
+  },
+  "matmul_down": {
+   "1": 96.483,
+   "2": 104.107,
+   "4": 116.013,
+   "8": 154.424
+  },
+  "matmul_lm": {
+   "1": 4152.83,
+   "2": 4652.8,
+   "4": 5679.21,
+   "8": 7970.75
+  }
+ },
+ "runs": {
+  "single": {
+   "mode": "graph_whole",
+   "seq": 2048,
+   "device": 6,
+   "warmup": 1,
+   "iters": 3,
+   "best_us": 22138.9,
+   "typical_us": 22228.9,
+   "samples_us": [
+    22327,
+    22228.9,
+    22138.9
+   ],
+   "argmax": 33,
+   "ref_argmax": 33,
+   "maxdiff": 0.179688,
+   "abs_mean": 1.10274,
+   "flag_edges": 0,
+   "flag_timeouts": 0,
+   "host_best_us": 4.64,
+   "host_typical_us": 7.29,
+   "_rc": 0
+  }
+ }
+}

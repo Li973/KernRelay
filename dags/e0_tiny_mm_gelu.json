@@ -1,0 +1,26 @@
+{
+  "name": "e0_tiny_mm_gelu",
+  "description": "E0 非法 schedule 拒绝门禁用的微型 1:1 DAG（不进入性能结论）",
+  "nodes": [
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {"M": 256, "K": 128, "N": 256},
+      "dtype": "fp16",
+      "tiles": 2
+    },
+    {
+      "name": "gelu",
+      "op": "gelu",
+      "engine": "aiv",
+      "shape": {"rows": 256, "cols": 256},
+      "dtype": "fp16",
+      "tiles": 2
+    }
+  ],
+  "edges": [
+    {"src": "mm", "dst": "gelu", "kind": "data"}
+  ],
+  "fixed": {"chunking": {"mm": 2, "gelu": 2}}
+}

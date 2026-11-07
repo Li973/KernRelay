@@ -1,0 +1,429 @@
+{
+ "model": "<KERNRELAY_CACHE>/qwen3-vl-4b",
+ "seq": 2048,
+ "devices": [
+  2,
+  3
+ ],
+ "tiles": 2,
+ "procs": 3,
+ "iters": 3,
+ "warmup": 1,
+ "modes": {
+  "tp2": {
+   "runs": [
+    {
+     "mode": "tp2",
+     "seq": 2048,
+     "tiles": 1,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 123176,
+     "wall_typical_us": 124928,
+     "wall_samples_us": [
+      130762,
+      124928,
+      123176
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 112064,
+       "typical_us": 119678,
+       "samples_us": [
+        128894,
+        112064,
+        119678
+       ],
+       "argmax": 151645,
+       "ref_argmax": 151645,
+       "maxdiff": 0.0625,
+       "abs_mean": 4.29963,
+       "flag_edges": 290,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 108029,
+       "typical_us": 108047,
+       "samples_us": [
+        122542,
+        108029,
+        108047
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 0
+    },
+    {
+     "mode": "tp2",
+     "seq": 2048,
+     "tiles": 1,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 134629,
+     "wall_typical_us": 165825,
+     "wall_samples_us": [
+      165825,
+      134629,
+      167275
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 133203,
+       "typical_us": 162820,
+       "samples_us": [
+        163639,
+        133203,
+        162820
+       ],
+       "argmax": 151645,
+       "ref_argmax": 151645,
+       "maxdiff": 0.0625,
+       "abs_mean": 4.29963,
+       "flag_edges": 290,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 124380,
+       "typical_us": 153614,
+       "samples_us": [
+        153614,
+        124380,
+        157851
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 1
+    },
+    {
+     "mode": "tp2",
+     "seq": 2048,
+     "tiles": 1,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 108270,
+     "wall_typical_us": 117056,
+     "wall_samples_us": [
+      117056,
+      134028,
+      108270
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 107747,
+       "typical_us": 117010,
+       "samples_us": [
+        117010,
+        133952,
+        107747
+       ],
+       "argmax": 151645,
+       "ref_argmax": 151645,
+       "maxdiff": 0.0625,
+       "abs_mean": 4.29963,
+       "flag_edges": 290,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 98877.2,
+       "typical_us": 103861,
+       "samples_us": [
+        103861,
+        121341,
+        98877.2
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 2
+    }
+   ],
+   "best_us": 108270,
+   "typical_us": 123176,
+   "argmax": [
+    151645
+   ],
+   "maxdiff": [
+    0.0625
+   ]
+  },
+  "tp2_split": {
+   "runs": [
+    {
+     "mode": "tp2_split",
+     "seq": 2048,
+     "tiles": 2,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 105031,
+     "wall_typical_us": 105435,
+     "wall_samples_us": [
+      110688,
+      105031,
+      105435
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 104886,
+       "typical_us": 105007,
+       "samples_us": [
+        104886,
+        105007,
+        105411
+       ],
+       "argmax": 151645,
+       "ref_argmax": 151645,
+       "maxdiff": 0.0625,
+       "abs_mean": 4.29963,
+       "flag_edges": 326,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 96175.6,
+       "typical_us": 97048,
+       "samples_us": [
+        101780,
+        96175.6,
+        97048
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 0
+    },
+    {
+     "mode": "tp2_split",
+     "seq": 2048,
+     "tiles": 2,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 105960,
+     "wall_typical_us": 111128,
+     "wall_samples_us": [
+      122747,
+      105960,
+      111128
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 105900,
+       "typical_us": 115104,
+       "samples_us": [
+        122714,
+        105900,
+        115104
+       ],
+       "argmax": 151645,
+       "ref_argmax": 151645,
+       "maxdiff": 0.0625,
+       "abs_mean": 4.29963,
+       "flag_edges": 326,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 97233.1,
+       "typical_us": 108038,
+       "samples_us": [
+        113803,
+        97233.1,
+        108038
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 1
+    },
+    {
+     "mode": "tp2_split",
+     "seq": 2048,
+     "tiles": 2,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 106196,
+     "wall_typical_us": 114556,
+     "wall_samples_us": [
+      106196,
+      114556,
+      119899
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 106160,
+       "typical_us": 114529,
+       "samples_us": [
+        106160,
+        114529,
+        116019
+       ],
+       "argmax": 151645,
+       "ref_argmax": 151645,
+       "maxdiff": 0.0625,
+       "abs_mean": 4.29963,
+       "flag_edges": 326,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 97259.8,
+       "typical_us": 102486,
+       "samples_us": [
+        97259.8,
+        102486,
+        105813
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 2
+    }
+   ],
+   "best_us": 105031,
+   "typical_us": 105960,
+   "argmax": [
+    151645
+   ],
+   "maxdiff": [
+    0.0625
+   ]
+  }
+ },
+ "split_speedup": 1.0308385143433842
+}

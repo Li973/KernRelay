@@ -1,0 +1,44 @@
+// 纯 AICPU 自定义算子与 AICPU 侧自旋探针。
+// AICPU 实现只在这些算子没有任何其它引擎实现时才会被系统优先选择，
+// 因此这里单独注册为 custom 算子（见 kernel/engine_map 体系）。
+#include "aicpu_api.h"
+#include "custom_args.h"
+
+namespace {
+constexpr uint32_t FLAG_STRIDE = 16;
+constexpr uint32_t SPIN_DEAD = 400000000U;
+}
+
+// 标量 fp16 循环：out[0] = 累加结果（时长由 elems*iters 控制）。
+extern "C" __global__ __aicpu__ uint32_t nhp_aicpu_scale(CustomScaleArgs *args)
+{
+    volatile __fp16 *in = reinterpret_cast<volatile __fp16 *>(args->in);
+    __fp16 *out = reinterpret_cast<__fp16 *>(args->out);
+    float acc = 0.0f;
+    // 乘子取 <1 保证累加器收敛；>1 会指数发散，fp16 输出溢出为 inf（checksum 写出非法 JSON）。
+    for (uint32_t it = 0; it < args->iters; ++it) {
+        for (uint32_t i = 0; i < args->elems; ++i) {
+            acc = acc * 0.9990234375f + (float)in[i];
+        }
+    }
+    out[0] = (__fp16)acc;
+    return 0;
+}
+
+// 跨流通知探针（AICPU 侧）：自旋等待 producer 发布的 DDR flag。
+extern "C" __global__ __aicpu__ uint32_t nhp_aicpu_spin(SpinArgs *args)
+{
+    volatile uint32_t *flag =
+        reinterpret_cast<volatile uint32_t *>(args->flagAddress) + args->index * FLAG_STRIDE;
+    uint32_t value = *flag;
+    if (args->noWait == 0) {
+        uint32_t spins = 0;
+        while (value == 0 && spins++ < args->maxSpins) {
+            value = *flag;
+        }
+    }
+    reinterpret_cast<volatile uint32_t *>(args->statusAddress)[args->index * FLAG_STRIDE] =
+        (value != 0) ? 1U : 2U;
+    AscendC::DataStoreBarrier();
+    return 0;
+}

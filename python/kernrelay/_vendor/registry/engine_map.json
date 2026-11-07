@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "source": "msprof+manifest",
+    "profiled": "2026-10-28",
+    "soc": "Ascend910B3",
+    "cann": "9.0.0",
+    "npu_physical": "6,7",
+    "method": "msprof op_summary Task Type（build/nhp_bench 单轮真机），自定义 kernel 另由编译期 KERNEL_TASK_TYPE_DEFAULT 元数据固定",
+    "profiled_ops": [
+      "matmul(512x512x512)", "add/gelu/softmax/layernorm/cast(1024x1024)",
+      "topk(1024x1024,k=128)", "sort(512x512)", "embedding(1024x256,V=4096)",
+      "allreduce/allgather(512x512)", "reducescatter(1024x512)",
+      "custom_aiv_scale", "custom_aic_mac", "custom_mix_scale", "custom_aicpu_scale"
+    ]
+  },
+  "streams": {
+    "aicore_mix": "aicore",
+    "aic": "aic",
+    "aiv": "aiv",
+    "aicpu": "aicpu",
+    "hccl": "hccl"
+  },
+  "defaults": {
+    "unknown_op": "aicore_mix",
+    "note": "未测量/未登记的 aclnn 算子一律按 MIX 保守处理：占用全部 AICore，不与纯 AIC/AIV 重叠"
+  },
+  "ops": {
+    "matmul": {
+      "physical": "aic",
+      "task_types": ["AI_CORE"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "aclnnMatmul_MatMulCommon_MatMulV2: Task Type=AI_CORE, Block Num=16, aiv_time=0; 全量 130.0us / 单 tile 4.8-37.6us"
+    },
+    "add": {
+      "physical": "aiv",
+      "task_types": ["AI_VECTOR_CORE"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "aclnnAdd_AddAiCore_Add: Task Type=AI_VECTOR_CORE"
+    },
+    "gelu": {
+      "physical": "aiv",
+      "task_types": ["AI_VECTOR_CORE"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "aclnnGelu_Gelu_Gelu: Task Type=AI_VECTOR_CORE"
+    },
+    "softmax": {
+      "physical": "aiv",
+      "task_types": ["AI_VECTOR_CORE"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "aclnnSoftmax_SoftmaxAiCore_SoftmaxV2: Task Type=AI_VECTOR_CORE"
+    },
+    "layernorm": {
+      "physical": "aiv",
+      "task_types": ["AI_VECTOR_CORE"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "aclnnLayerNormWithImplMode_*: Task Type=AI_VECTOR_CORE"
+    },
+    "cast": {
+      "physical": "aiv",
+      "task_types": ["AI_VECTOR_CORE"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "aclnnCast_CastAiCore_Cast: Task Type=AI_VECTOR_CORE"
+    },
+    "embedding": {
+      "physical": "aiv",
+      "task_types": ["AI_VECTOR_CORE"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "aclnnEmbedding_GatherV2AiCore_GatherV2: Task Type=AI_VECTOR_CORE"
+    },
+    "topk": {
+      "physical": "aicore_mix",
+      "task_types": ["MIX_AIV", "AI_VECTOR_CORE"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "aclnnTopk_TopkV2AiCore_TopKV2: Task Type=MIX_AIV, Block Num=37-40, aiv_time≈15.6-49.5us；同 op 还含 Cast(AI_VECTOR_CORE) 内部 kernel"
+    },
+    "sort": {
+      "physical": "aicore_mix",
+      "task_types": ["MIX_AIV", "AI_VECTOR_CORE"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "aclnnSort_SortAiCore_Sort: Task Type=MIX_AIV, Block Num=32-40, aiv_time≈9.0-21.0us；同 op 还含 Cast(AI_VECTOR_CORE) 内部 kernel"
+    },
+    "allreduce": {
+      "physical": "hccl",
+      "task_types": ["COMMUNICATION"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "hcom_allReduce_*: Task Type=COMMUNICATION（device 2,3 双端）"
+    },
+    "allgather": {
+      "physical": "hccl",
+      "task_types": ["COMMUNICATION"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "hcom_allGather_*: Task Type=COMMUNICATION（device 2,3 双端）"
+    },
+    "reducescatter": {
+      "physical": "hccl",
+      "task_types": ["COMMUNICATION"],
+      "source": "msprof",
+      "stable": true,
+      "evidence": "hcom_reduceScatter_*: Task Type=COMMUNICATION（device 2,3 双端）"
+    },
+    "custom_aiv_scale": {
+      "physical": "aiv",
+      "task_types": ["AI_VECTOR_CORE"],
+      "source": "compile-annotation",
+      "stable": true,
+      "evidence": "KERNEL_TASK_TYPE_DEFAULT(KERNEL_TYPE_AIV_ONLY)；msprof Task Type=AI_VECTOR_CORE"
+    },
+    "custom_aic_mac": {
+      "physical": "aic",
+      "task_types": ["AI_CORE"],
+      "source": "compile-annotation",
+      "stable": true,
+      "evidence": "KERNEL_TASK_TYPE_DEFAULT(KERNEL_TYPE_AIC_ONLY)；msprof Task Type=AI_CORE"
+    },
+    "custom_mix_scale": {
+      "physical": "aicore_mix",
+      "task_types": ["MIX_AIC"],
+      "source": "compile-annotation",
+      "stable": true,
+      "evidence": "KERNEL_TASK_TYPE_DEFAULT(KERNEL_TYPE_MIX_AIC_1_2)；msprof Task Type=MIX_AIC, Mix Block Num=2"
+    },
+    "custom_aicpu_scale": {
+      "physical": "aicpu",
+      "task_types": ["AI_CPU"],
+      "source": "compile-annotation",
+      "stable": true,
+      "evidence": "AICPU kernel（kernel/custom_aicpu.aicpu）；msprof Task Type=AI_CPU"
+    }
+  },
+  "unstable": [],
+  "unstable_note": "并发下物理引擎可能漂移的算子名单。可由外部写入本文件，或用环境变量 NHP_UNSTABLE_OPS=op1,op2 追加；名单内算子同时间段不参与任何并发调度（调度器/固定计划需检查）。当前先假设全部算子物理引擎固定。"
+}

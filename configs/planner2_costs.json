@@ -1,0 +1,59 @@
+{
+ "description": "planner2 初始成本表：Qwen prefill 实测单 kernel 成本 + E1 切分税参数；后续由 E1 大表替换",
+ "launch_us": 8.0,
+ "traffic_gbps": 600.0,
+ "l2_mb": 32.0,
+ "full": {
+  "matmul|2048x896x896": 28.5,
+  "matmul|2048x896x128": 10.7,
+  "matmul|2048x896x4864": 99.8,
+  "matmul|2048x4864x896": 90.7,
+  "matmul|2048x896x151936": 2364.9,
+  "attention|1x14x2048x64": 372.3,
+  "rmsnorm|2048x896": 50.0,
+  "rope|2048x896": 30.0,
+  "rope|2048x128": 6.0,
+  "add|2048x896": 10.0,
+  "silu|2048x4864": 31.8,
+  "mul|2048x4864": 31.8,
+  "embedding|2048x896": 11.0,
+  "matmul|8192x1024x2048": 256.9,
+  "matmul|32768x1024x2048": 635.1,
+  "matmul|24576x1024x2048": 504.0,
+  "gelu|32768x2048": 413.4,
+  "softmax|32768x2048": 576.9,
+  "layernorm|32768x2048": 826.0,
+  "cast|32768x2048": 452.6,
+  "matmul|65536x2048x4096": 4107.3,
+  "gelu|131072x4096": 2330.5,
+  "layernorm|131072x4096": 5555.2,
+  "add|131072x4096": 2887.2,
+  "softmax|131072x4096": 3615.6,
+  "cast|131072x4096": 2648.3,
+  "topk|8192x4096": 1521.2,
+  "sort|4096x4096": 959.9,
+  "embedding|65536x1024": 202.9,
+  "allreduce|2048x2048": 734.9,
+  "allreduce|32768x2048": 7487.3,
+  "allgather|2048x2048": 734.9,
+  "reducescatter|2048x2048": 734.9
+ },
+ "split": {
+  "row": {
+   "overhead_per_tile_us": 8.0,
+   "traffic_factor": 1.0,
+   "note": "M/rows 切；每个 tile 输出连续，ACLNN 无 ViewCopy"
+  },
+  "col": {
+   "overhead_per_tile_us": 8.0,
+   "viewcopy_per_mb_us": 1.6,
+   "note": "N 切；ACLNN 为 strided 输出插入 Slice+ViewCopy，实测约 1.6us/MB"
+  },
+  "m2d": {
+   "overhead_per_tile_us": 8.0,
+   "viewcopy_per_mb_us": 1.6,
+   "note": "M×N；输出需 ViewCopy"
+  }
+ },
+ "event_us": 20.0
+}

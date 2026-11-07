@@ -1,0 +1,99 @@
+{
+ "cases": [
+  {
+   "tag": "qwen2.5-0.5b",
+   "layers": 24,
+   "base_layer_us": 587.5,
+   "planned_layer_us": 587.5,
+   "gain_layer_us": 0.0,
+   "gain_total_us": 0.0,
+   "splits": {},
+   "history": [],
+   "decisions": []
+  },
+  {
+   "tag": "qwen2.5-7b",
+   "layers": 28,
+   "base_layer_us": 2433.853397504,
+   "planned_layer_us": 2278.1943520853333,
+   "gain_layer_us": 155.65904541866666,
+   "gain_total_us": 4358.453271722667,
+   "splits": {
+    "down": {
+     "strategy": "row",
+     "k": 2
+    },
+    "ar": {
+     "strategy": "row",
+     "k": 2
+    },
+    "an": {
+     "strategy": "row",
+     "k": 2
+    },
+    "qkv": {
+     "strategy": "row",
+     "k": 2
+    }
+   },
+   "history": [
+    {
+     "round": 0,
+     "k": "k=2/2",
+     "gain_us": 81.93234666666694,
+     "splits": {
+      "down": {
+       "strategy": "row",
+       "k": 2
+      },
+      "ar": {
+       "strategy": "row",
+       "k": 2
+      }
+     }
+    },
+    {
+     "round": 1,
+     "k": "k=2/2",
+     "gain_us": 73.72669875199972,
+     "splits": {
+      "down": {
+       "strategy": "row",
+       "k": 2
+      },
+      "ar": {
+       "strategy": "row",
+       "k": 2
+      },
+      "an": {
+       "strategy": "row",
+       "k": 2
+      },
+      "qkv": {
+       "strategy": "row",
+       "k": 2
+      }
+     }
+    }
+   ],
+   "decisions": [
+    {
+     "consumer": "ar",
+     "critical_edge": "down -> ar",
+     "k": "2/2",
+     "dep_gap_us": 1122.9,
+     "predicted_gain_us": 81.93234666666694,
+     "accepted": true
+    },
+    {
+     "consumer": "qkv",
+     "critical_edge": "an -> qkv",
+     "k": "2/2",
+     "dep_gap_us": 736.2499999999998,
+     "predicted_gain_us": 73.72669875199972,
+     "accepted": true
+    }
+   ]
+  }
+ ]
+}

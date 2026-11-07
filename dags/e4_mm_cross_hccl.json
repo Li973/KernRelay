@@ -1,0 +1,34 @@
+{
+  "name": "e4_mm_cross_hccl",
+  "description": "1:N 跨引擎：matmul(AIC) 同时供 gelu(AIV) 与 allreduce(HCCL)；KernRelay 按行切分并逐块放行",
+  "nodes": [
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {"M": 32768, "K": 1024, "N": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "gelu",
+      "op": "gelu",
+      "engine": "aiv",
+      "shape": {"rows": 32768, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "ar",
+      "op": "allreduce",
+      "engine": "hccl",
+      "shape": {"rows": 32768, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    }
+  ],
+  "edges": [
+    {"src": "mm", "dst": "gelu", "kind": "data"},
+    {"src": "mm", "dst": "ar", "kind": "data"}
+  ]
+}

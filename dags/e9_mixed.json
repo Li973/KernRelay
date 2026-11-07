@@ -1,0 +1,42 @@
+{
+  "name": "e9_mixed",
+  "description": "E9 有利 DAG：两波共享 AIC；第一波 gelu（AIV）与第二波 partial allreduce（HCCL）都在 GEMM 下隐藏",
+  "nodes": [
+    {
+      "name": "mm1",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {"M": 32768, "K": 1024, "N": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "gelu1",
+      "op": "gelu",
+      "engine": "aiv",
+      "shape": {"rows": 32768, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "mm2",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {"M": 32768, "K": 1024, "N": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "ar",
+      "op": "allreduce",
+      "engine": "hccl",
+      "shape": {"rows": 2048, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 1
+    }
+  ],
+  "edges": [
+    {"src": "mm1", "dst": "gelu1", "kind": "data"},
+    {"src": "mm2", "dst": "ar", "kind": "data"}
+  ]
+}

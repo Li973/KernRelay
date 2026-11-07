@@ -1,0 +1,25 @@
+{
+  "name": "e3_ln_mm",
+  "description": "1:1 反向边：layernorm(AIV) -> matmul(AIC)，KernRelay 按行切分逐块放行",
+  "nodes": [
+    {
+      "name": "ln",
+      "op": "layernorm",
+      "engine": "aiv",
+      "shape": {"rows": 32768, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {"M": 32768, "K": 2048, "N": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    }
+  ],
+  "edges": [
+    {"src": "ln", "dst": "mm", "kind": "data"}
+  ]
+}

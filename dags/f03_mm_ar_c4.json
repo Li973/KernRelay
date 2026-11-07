@@ -1,0 +1,41 @@
+{
+  "name": "f03_mm_ar_c4",
+  "description": "1:N 切分重叠（compute->comm，AIC->HCCL）：matmul 切 4 块，allreduce 只读前 2048 行且不切分，只需等覆盖该行区间的第 0 块 matmul；A 组整 matmul 完成后通信才开始",
+  "nodes": [
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {
+        "M": 32768,
+        "K": 1024,
+        "N": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "ar",
+      "op": "allreduce",
+      "engine": "hccl",
+      "shape": {
+        "rows": 2048,
+        "cols": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 1
+    }
+  ],
+  "edges": [
+    {
+      "src": "mm",
+      "dst": "ar",
+      "kind": "data"
+    }
+  ],
+  "fixed": {
+    "chunking": {
+      "mm": 4
+    }
+  }
+}

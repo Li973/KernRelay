@@ -1,0 +1,43 @@
+{
+  "name": "e9_chain2",
+  "description": "E9 依赖链：mm(K=1024)->gelu->mm(K=2048)->gelu；第二波 GEMM 依赖第一波 gelu，检验真实依赖对重叠的折损",
+  "nodes": [
+    {
+      "name": "mm1",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {"M": 32768, "K": 1024, "N": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "gelu1",
+      "op": "gelu",
+      "engine": "aiv",
+      "shape": {"rows": 32768, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "mm2",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {"M": 32768, "K": 2048, "N": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "gelu2",
+      "op": "gelu",
+      "engine": "aiv",
+      "shape": {"rows": 32768, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    }
+  ],
+  "edges": [
+    {"src": "mm1", "dst": "gelu1", "kind": "data"},
+    {"src": "gelu1", "dst": "mm2", "kind": "data"},
+    {"src": "mm2", "dst": "gelu2", "kind": "data"}
+  ]
+}

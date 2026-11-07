@@ -1,0 +1,4394 @@
+{
+ "meta": {
+  "config": "<KERNRELAY_ROOT>/configs/e34_overlap.json",
+  "devices_arg": "1,2",
+  "devices_logical": "0,1",
+  "nranks": 2,
+  "samples_target": 3,
+  "warmup": 2,
+  "iters_per_process": 5,
+  "min_processes": 3,
+  "timestamp": "2026-11-02T20:13:41"
+ },
+ "experiments": [
+  {
+   "name": "e3_mm_gelu_k2",
+   "group": "E3",
+   "dag": "f01_mm_gelu_c2",
+   "chunking": {
+    "mm": 2,
+    "gelu": 2
+   },
+   "note": "1:1 AIC->AIV，q=1",
+   "variants": {
+    "serial": {
+     "best_us": 971.721,
+     "typical_us": 975.142,
+     "p50_us": 1014.092,
+     "p90_us": 1110.592,
+     "min_us": 971.721,
+     "max_us": 77485.189,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 975.142,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      999.872,
+      1070.112,
+      77485.189,
+      996.162,
+      975.142,
+      1032.692,
+      1018.952,
+      1021.911,
+      1014.092,
+      1110.592,
+      1001.952,
+      971.721,
+      1006.892,
+      1016.902,
+      1006.621
+     ],
+     "proc_mins_us": [
+      975.142,
+      1014.092,
+      971.721
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        999.872,
+        1070.112,
+        77485.189,
+        996.162,
+        975.142
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 8.383793354034424
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1032.692,
+        1018.952,
+        1021.911,
+        1014.092,
+        1110.592
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 8.781303644180298
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1001.952,
+        971.721,
+        1006.892,
+        1016.902,
+        1006.621
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 8.222087621688843
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 981.062,
+     "typical_us": 986.712,
+     "p50_us": 1010.122,
+     "p90_us": 1070.822,
+     "min_us": 981.062,
+     "max_us": 132274.945,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 986.712,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      132274.945,
+      1070.822,
+      994.692,
+      1017.022,
+      1041.792,
+      993.562,
+      1005.242,
+      1010.122,
+      986.712,
+      1011.892,
+      1039.932,
+      1032.102,
+      996.952,
+      1004.152,
+      981.062
+     ],
+     "proc_mins_us": [
+      994.692,
+      986.712,
+      981.062
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        132274.945,
+        1070.822,
+        994.692,
+        1017.022,
+        1041.792
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 9.006870985031128
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        993.562,
+        1005.242,
+        1010.122,
+        986.712,
+        1011.892
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 8.78495168685913
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1039.932,
+        1032.102,
+        996.952,
+        1004.152,
+        981.062
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 9.000366449356079
+      }
+     ]
+    },
+    "split": {
+     "best_us": 890.362,
+     "typical_us": 995.312,
+     "p50_us": 39839.015,
+     "p90_us": 39961.315,
+     "min_us": 890.362,
+     "max_us": 105805.789,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 995.312,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      39856.935,
+      39823.525,
+      928.032,
+      890.362,
+      39839.015,
+      39927.045,
+      1125.272,
+      995.312,
+      39894.905,
+      39937.245,
+      105805.789,
+      39961.315,
+      39880.955,
+      1003.671,
+      39817.545
+     ],
+     "proc_mins_us": [
+      890.362,
+      995.312,
+      1003.671
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        39856.935,
+        39823.525,
+        928.032,
+        890.362,
+        39839.015
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 9.237606763839722
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        39927.045,
+        1125.272,
+        995.312,
+        39894.905,
+        39937.245
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 8.98677921295166
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        105805.789,
+        39961.315,
+        39880.955,
+        1003.671,
+        39817.545
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 9.780704736709595
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 1.0913774397379943,
+   "speedup_min_vs_b0": 1.101868678133164
+  },
+  {
+   "name": "e3_mm_gelu_k4",
+   "group": "E3",
+   "dag": "f02_mm_gelu_c4",
+   "chunking": {
+    "mm": 4,
+    "gelu": 4
+   },
+   "note": "1:1 AIC->AIV，q=1",
+   "variants": {
+    "serial": {
+     "best_us": 978.762,
+     "typical_us": 981.001,
+     "p50_us": 1010.432,
+     "p90_us": 77497.637,
+     "min_us": 978.762,
+     "max_us": 82901.367,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 981.001,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      1056.352,
+      978.762,
+      82901.367,
+      1138.572,
+      77497.637,
+      993.802,
+      989.662,
+      1001.212,
+      981.001,
+      1010.432,
+      1013.791,
+      988.142,
+      1017.532,
+      1128.572,
+      992.012
+     ],
+     "proc_mins_us": [
+      978.762,
+      981.001,
+      988.142
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1056.352,
+        978.762,
+        82901.367,
+        1138.572,
+        77497.637
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 8.988245248794556
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        993.802,
+        989.662,
+        1001.212,
+        981.001,
+        1010.432
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 9.002524614334106
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1013.791,
+        988.142,
+        1017.532,
+        1128.572,
+        992.012
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 9.013274192810059
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 973.982,
+     "typical_us": 987.662,
+     "p50_us": 1006.292,
+     "p90_us": 1034.892,
+     "min_us": 973.982,
+     "max_us": 1045.942,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 987.662,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      1034.892,
+      1006.292,
+      1016.201,
+      1021.092,
+      973.982,
+      1023.712,
+      1004.372,
+      1003.891,
+      995.702,
+      1011.842,
+      1045.942,
+      1014.401,
+      1000.402,
+      1005.702,
+      987.662
+     ],
+     "proc_mins_us": [
+      973.982,
+      995.702,
+      987.662
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1034.892,
+        1006.292,
+        1016.201,
+        1021.092,
+        973.982
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 8.99281644821167
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1023.712,
+        1004.372,
+        1003.891,
+        995.702,
+        1011.842
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 9.006981134414673
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1045.942,
+        1014.401,
+        1000.402,
+        1005.702,
+        987.662
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 8.322760581970215
+      }
+     ]
+    },
+    "split": {
+     "best_us": 889.182,
+     "typical_us": 896.3520000000001,
+     "p50_us": 20333.016,
+     "p90_us": 75571.977,
+     "min_us": 889.182,
+     "max_us": 101933.735,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 2,
+     "contaminated_processes": 1,
+     "typical_all_us": 903.522,
+     "retries": 1,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      75571.977,
+      101933.735,
+      52891.285,
+      20412.597,
+      20333.016,
+      24589.895,
+      1106.922,
+      933.892,
+      903.522,
+      24797.225,
+      909.702,
+      45855.532,
+      910.921,
+      889.182,
+      20037.236
+     ],
+     "proc_mins_us": [
+      20333.016,
+      903.522,
+      889.182
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 9.015084505081177
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        75571.977,
+        101933.735,
+        52891.285,
+        20412.597,
+        20333.016
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 8.652827501296997
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        24589.895,
+        1106.922,
+        933.892,
+        903.522,
+        24797.225
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 8.993770360946655
+      },
+      {
+       "attempt": 3,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        909.702,
+        45855.532,
+        910.921,
+        889.182,
+        20037.236
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt03.log",
+       "sched": "split_attempt03.sched.json",
+       "out": "split_attempt03.out.json",
+       "wall_s": 8.340659141540527
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 1.1007442795738105,
+   "speedup_min_vs_b0": 1.0953685522199055
+  },
+  {
+   "name": "e3_mm_gelu_k8",
+   "group": "E3",
+   "dag": "f02_mm_gelu_c4",
+   "chunking": {
+    "mm": 8,
+    "gelu": 8
+   },
+   "note": "1:1 AIC->AIV，q=1，细粒度",
+   "variants": {
+    "serial": {
+     "best_us": 1008.381,
+     "typical_us": 1018.572,
+     "p50_us": 1027.512,
+     "p90_us": 1100.402,
+     "min_us": 1008.381,
+     "max_us": 1128.292,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1018.572,
+     "retries": 1,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      1067.452,
+      1030.782,
+      1021.642,
+      1027.512,
+      1008.381,
+      1036.992,
+      1128.292,
+      1024.022,
+      1020.122,
+      1018.572,
+      1042.862,
+      1022.862,
+      1031.072,
+      1100.402,
+      1019.872
+     ],
+     "proc_mins_us": [
+      1008.381,
+      1018.572,
+      1019.872
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 9.006123542785645
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1067.452,
+        1030.782,
+        1021.642,
+        1027.512,
+        1008.381
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 8.654248714447021
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1036.992,
+        1128.292,
+        1024.022,
+        1020.122,
+        1018.572
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 8.329654693603516
+      },
+      {
+       "attempt": 3,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1042.862,
+        1022.862,
+        1031.072,
+        1100.402,
+        1019.872
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt03.log",
+       "sched": "serial_attempt03.sched.json",
+       "out": "serial_attempt03.out.json",
+       "wall_s": 8.007802963256836
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 1014.922,
+     "typical_us": 1026.602,
+     "p50_us": 1038.782,
+     "p90_us": 1067.672,
+     "min_us": 1014.922,
+     "max_us": 122876.25,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1026.602,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      1037.532,
+      122876.25,
+      1014.922,
+      1021.172,
+      1018.732,
+      1044.242,
+      1060.102,
+      1026.602,
+      1052.212,
+      1028.352,
+      1045.772,
+      1042.252,
+      1067.672,
+      1037.672,
+      1038.782
+     ],
+     "proc_mins_us": [
+      1014.922,
+      1026.602,
+      1037.672
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1037.532,
+        122876.25,
+        1014.922,
+        1021.172,
+        1018.732
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 8.762639045715332
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1044.242,
+        1060.102,
+        1026.602,
+        1052.212,
+        1028.352
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 8.978266477584839
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1045.772,
+        1042.252,
+        1067.672,
+        1037.672,
+        1038.782
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 8.994968175888062
+      }
+     ]
+    },
+    "split": {
+     "best_us": 911.312,
+     "typical_us": 922.787,
+     "p50_us": 12614.682,
+     "p90_us": 103795.105,
+     "min_us": 911.312,
+     "max_us": 123658.54,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 2,
+     "contaminated_processes": 1,
+     "typical_all_us": 934.262,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      65053.465,
+      10529.349,
+      47691.545,
+      123658.54,
+      6229.701,
+      12614.682,
+      59628.056,
+      934.262,
+      30909.905,
+      11173.709,
+      27359.998,
+      10492.448,
+      10503.279,
+      103795.105,
+      911.312
+     ],
+     "proc_mins_us": [
+      6229.701,
+      934.262,
+      911.312
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        65053.465,
+        10529.349,
+        47691.545,
+        123658.54,
+        6229.701
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 9.013663053512573
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        12614.682,
+        59628.056,
+        934.262,
+        30909.905,
+        11173.709
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 8.998983144760132
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        27359.998,
+        10492.448,
+        10503.279,
+        103795.105,
+        911.312
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 9.255107879638672
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 1.1065156609371982,
+   "speedup_min_vs_b0": 1.1136932247133804
+  },
+  {
+   "name": "e3_mm_gelu_k16",
+   "group": "E3",
+   "dag": "f02_mm_gelu_c4",
+   "chunking": {
+    "mm": 16,
+    "gelu": 16
+   },
+   "note": "1:1 AIC->AIV，q=1，事件成本探测",
+   "variants": {
+    "serial": {
+     "best_us": 1005.602,
+     "typical_us": 1016.192,
+     "p50_us": 1025.702,
+     "p90_us": 1050.742,
+     "min_us": 1005.602,
+     "max_us": 1054.522,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1016.192,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      1020.341,
+      1054.522,
+      1016.192,
+      1035.922,
+      1021.262,
+      1035.972,
+      1050.742,
+      1026.031,
+      1025.142,
+      1025.702,
+      1027.302,
+      1013.472,
+      1045.972,
+      1005.602,
+      1017.781
+     ],
+     "proc_mins_us": [
+      1016.192,
+      1025.142,
+      1005.602
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1020.341,
+        1054.522,
+        1016.192,
+        1035.922,
+        1021.262
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 8.78536581993103
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1035.972,
+        1050.742,
+        1026.031,
+        1025.142,
+        1025.702
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 8.994736194610596
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1027.302,
+        1013.472,
+        1045.972,
+        1005.602,
+        1017.781
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 9.005708456039429
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 1022.042,
+     "typical_us": 1023.702,
+     "p50_us": 1035.812,
+     "p90_us": 1062.192,
+     "min_us": 1022.042,
+     "max_us": 1139.462,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1023.702,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      1062.192,
+      1037.912,
+      1139.462,
+      1035.812,
+      1045.962,
+      1042.752,
+      1032.972,
+      1028.742,
+      1022.042,
+      1029.481,
+      1060.892,
+      1023.702,
+      1047.691,
+      1026.782,
+      1032.402
+     ],
+     "proc_mins_us": [
+      1035.812,
+      1022.042,
+      1023.702
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1062.192,
+        1037.912,
+        1139.462,
+        1035.812,
+        1045.962
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 8.995530605316162
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1042.752,
+        1032.972,
+        1028.742,
+        1022.042,
+        1029.481
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 9.012532949447632
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1060.892,
+        1023.702,
+        1047.691,
+        1026.782,
+        1032.402
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 8.99754548072815
+      }
+     ]
+    },
+    "split": {
+     "best_us": 959.162,
+     "typical_us": 1174.6525000000001,
+     "p50_us": 21751.758,
+     "p90_us": 95303.391,
+     "min_us": 959.162,
+     "max_us": 120530.376,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 2,
+     "contaminated_processes": 1,
+     "typical_all_us": 1390.143,
+     "retries": 1,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      8454.525,
+      95303.391,
+      42822.677,
+      959.162,
+      12435.912,
+      40303.972,
+      120530.376,
+      54355.987,
+      1390.143,
+      12983.224,
+      21751.758,
+      50271.94,
+      39244.32,
+      6757.052,
+      14454.116
+     ],
+     "proc_mins_us": [
+      959.162,
+      1390.143,
+      6757.052
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        8454.525,
+        95303.391,
+        42822.677,
+        959.162,
+        12435.912
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 9.220255851745605
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        40303.972,
+        120530.376,
+        54355.987,
+        1390.143,
+        12983.224
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 9.790111541748047
+      },
+      {
+       "attempt": 2,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 9.225525379180908
+      },
+      {
+       "attempt": 3,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        21751.758,
+        50271.94,
+        39244.32,
+        6757.052,
+        14454.116
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt03.log",
+       "sched": "split_attempt03.sched.json",
+       "out": "split_attempt03.out.json",
+       "wall_s": 9.000001430511475
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 1.0484172642369067,
+   "speedup_min_vs_b0": 1.0655572259951915
+  },
+  {
+   "name": "e3_mm_gelu_q2",
+   "group": "E3",
+   "dag": "f02_mm_gelu_c4",
+   "chunking": {
+    "mm": 8,
+    "gelu": 4
+   },
+   "note": "1:1 AIC->AIV，消费者每块读 2 个生产者块（q=2）",
+   "variants": {
+    "serial": {
+     "best_us": 1012.182,
+     "typical_us": 1019.792,
+     "p50_us": 1026.022,
+     "p90_us": 1044.722,
+     "min_us": 1012.182,
+     "max_us": 1047.872,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1019.792,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      1025.131,
+      1044.722,
+      1012.182,
+      1019.202,
+      1015.311,
+      1032.721,
+      1047.872,
+      1023.972,
+      1027.462,
+      1026.022,
+      1036.252,
+      1021.292,
+      1019.792,
+      1030.342,
+      1032.271
+     ],
+     "proc_mins_us": [
+      1012.182,
+      1023.972,
+      1019.792
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1025.131,
+        1044.722,
+        1012.182,
+        1019.202,
+        1015.311
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 7.987335681915283
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1032.721,
+        1047.872,
+        1023.972,
+        1027.462,
+        1026.022
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 8.773166179656982
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1036.252,
+        1021.292,
+        1019.792,
+        1030.342,
+        1032.271
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 8.290461301803589
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 998.212,
+     "typical_us": 1019.032,
+     "p50_us": 1027.382,
+     "p90_us": 1122.472,
+     "min_us": 998.212,
+     "max_us": 47753.823,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1019.032,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      1055.792,
+      1027.152,
+      1052.702,
+      1034.171,
+      1035.572,
+      1035.531,
+      47753.823,
+      1003.422,
+      998.212,
+      1122.472,
+      1020.271,
+      1027.382,
+      1026.022,
+      1019.032,
+      1019.622
+     ],
+     "proc_mins_us": [
+      1027.152,
+      998.212,
+      1019.032
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1055.792,
+        1027.152,
+        1052.702,
+        1034.171,
+        1035.572
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 8.75951600074768
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1035.531,
+        47753.823,
+        1003.422,
+        998.212,
+        1122.472
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 8.236139297485352
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1020.271,
+        1027.382,
+        1026.022,
+        1019.032,
+        1019.622
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 9.00132131576538
+      }
+     ]
+    },
+    "split": {
+     "best_us": 920.671,
+     "typical_us": 920.671,
+     "p50_us": 22567.809,
+     "p90_us": 63426.771,
+     "min_us": 920.671,
+     "max_us": 64958.613,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 1,
+     "contaminated_processes": 2,
+     "typical_all_us": 10475.329,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      41199.032,
+      35932.843,
+      22273.489,
+      10475.329,
+      22567.809,
+      64958.613,
+      28349.84,
+      20107.515,
+      53919.474,
+      920.671,
+      13216.393,
+      63426.771,
+      26704.496,
+      20175.405,
+      20116.325
+     ],
+     "proc_mins_us": [
+      10475.329,
+      920.671,
+      13216.393
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        41199.032,
+        35932.843,
+        22273.489,
+        10475.329,
+        22567.809
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 9.055698156356812
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        64958.613,
+        28349.84,
+        20107.515,
+        53919.474,
+        920.671
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 8.9967200756073
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        13216.393,
+        63426.771,
+        26704.496,
+        20175.405,
+        20116.325
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 9.015996217727661
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 1.0993959840160057,
+   "speedup_min_vs_b0": 1.0842222683238638
+  },
+  {
+   "name": "e3_mm_gelu_q4",
+   "group": "E3",
+   "dag": "f02_mm_gelu_c4",
+   "chunking": {
+    "mm": 8,
+    "gelu": 2
+   },
+   "note": "1:1 AIC->AIV，消费者每块读 4 个生产者块（q=4）",
+   "variants": {
+    "serial": {
+     "best_us": 1003.192,
+     "typical_us": 1005.752,
+     "p50_us": 1023.732,
+     "p90_us": 1049.852,
+     "min_us": 1003.192,
+     "max_us": 1067.322,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1005.752,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      1049.852,
+      1014.852,
+      1010.981,
+      1014.052,
+      1027.322,
+      1035.562,
+      1022.892,
+      1039.652,
+      1005.752,
+      1014.042,
+      1067.322,
+      1023.732,
+      1027.432,
+      1041.002,
+      1003.192
+     ],
+     "proc_mins_us": [
+      1010.981,
+      1005.752,
+      1003.192
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1049.852,
+        1014.852,
+        1010.981,
+        1014.052,
+        1027.322
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 7.987268447875977
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1035.562,
+        1022.892,
+        1039.652,
+        1005.752,
+        1014.042
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 8.016082286834717
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1067.322,
+        1023.732,
+        1027.432,
+        1041.002,
+        1003.192
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 7.991282939910889
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 998.412,
+     "typical_us": 1013.862,
+     "p50_us": 1030.822,
+     "p90_us": 1050.782,
+     "min_us": 998.412,
+     "max_us": 110935.944,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1013.862,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      1042.222,
+      1050.782,
+      1013.862,
+      1027.922,
+      1029.092,
+      1030.712,
+      110935.944,
+      1038.901,
+      1000.542,
+      998.412,
+      1048.462,
+      1045.132,
+      1047.092,
+      1030.822,
+      1027.322
+     ],
+     "proc_mins_us": [
+      1013.862,
+      998.412,
+      1027.322
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1042.222,
+        1050.782,
+        1013.862,
+        1027.922,
+        1029.092
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 9.002221822738647
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1030.712,
+        110935.944,
+        1038.901,
+        1000.542,
+        998.412
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 8.835113286972046
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        1048.462,
+        1045.132,
+        1047.092,
+        1030.822,
+        1027.322
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 8.15705418586731
+      }
+     ]
+    },
+    "split": {
+     "best_us": 1048.031,
+     "typical_us": 1048.031,
+     "p50_us": 26503.198,
+     "p90_us": 56584.034,
+     "min_us": 1048.031,
+     "max_us": 66160.841,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 1,
+     "contaminated_processes": 2,
+     "typical_all_us": 10553.04,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.84616,
+     "checksums": [
+      0.84616,
+      0.84616,
+      0.84616
+     ],
+     "samples_us": [
+      66160.841,
+      26503.198,
+      10573.219,
+      20146.107,
+      10553.04,
+      56584.034,
+      32678.97,
+      10586.859,
+      28911.633,
+      20000.986,
+      27392.598,
+      21071.148,
+      1048.031,
+      33846.02,
+      56208.329
+     ],
+     "proc_mins_us": [
+      10553.04,
+      10586.859,
+      1048.031
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        66160.841,
+        26503.198,
+        10573.219,
+        20146.107,
+        10553.04
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 8.995800018310547
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        56584.034,
+        32678.97,
+        10586.859,
+        28911.633,
+        20000.986
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 9.014634132385254
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.84616,
+       "times_us": [
+        27392.598,
+        21071.148,
+        1048.031,
+        33846.02,
+        56208.329
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 8.994673490524292
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 0.9572159602149174,
+   "speedup_min_vs_b0": 0.9526550264257451
+  },
+  {
+   "name": "e3_ln_mm_k4",
+   "group": "E3",
+   "dag": "e3_ln_mm",
+   "chunking": {
+    "ln": 4,
+    "mm": 4
+   },
+   "note": "1:1 反向边 AIV->AIC",
+   "variants": {
+    "serial": {
+     "best_us": 1890.263,
+     "typical_us": 1897.863,
+     "p50_us": 1914.553,
+     "p90_us": 1940.543,
+     "min_us": 1890.263,
+     "max_us": 2018.194,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1897.863,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 5.91964,
+     "checksums": [
+      5.91964,
+      5.91964,
+      5.91964
+     ],
+     "samples_us": [
+      1911.503,
+      1935.303,
+      1903.324,
+      1905.784,
+      1890.263,
+      1914.574,
+      1939.314,
+      1914.553,
+      1929.673,
+      1897.863,
+      1925.943,
+      1940.543,
+      1909.413,
+      1909.804,
+      2018.194
+     ],
+     "proc_mins_us": [
+      1890.263,
+      1897.863,
+      1909.413
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 5.91964,
+       "times_us": [
+        1911.503,
+        1935.303,
+        1903.324,
+        1905.784,
+        1890.263
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 9.004929304122925
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 5.91964,
+       "times_us": [
+        1914.574,
+        1939.314,
+        1914.553,
+        1929.673,
+        1897.863
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 9.037514925003052
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 5.91964,
+       "times_us": [
+        1925.943,
+        1940.543,
+        1909.413,
+        1909.804,
+        2018.194
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 9.01238203048706
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 1885.473,
+     "typical_us": 1898.594,
+     "p50_us": 1912.313,
+     "p90_us": 1943.523,
+     "min_us": 1885.473,
+     "max_us": 33948.988,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1898.594,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 5.91964,
+     "checksums": [
+      5.91964,
+      5.91964,
+      5.91964
+     ],
+     "samples_us": [
+      1938.443,
+      1901.493,
+      1912.313,
+      1910.163,
+      1909.393,
+      1943.523,
+      1920.883,
+      1898.594,
+      1934.274,
+      1912.953,
+      1936.383,
+      1907.864,
+      1908.803,
+      1885.473,
+      33948.988
+     ],
+     "proc_mins_us": [
+      1901.493,
+      1898.594,
+      1885.473
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 5.91964,
+       "times_us": [
+        1938.443,
+        1901.493,
+        1912.313,
+        1910.163,
+        1909.393
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 8.996044397354126
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 5.91964,
+       "times_us": [
+        1943.523,
+        1920.883,
+        1898.594,
+        1934.274,
+        1912.953
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 8.791626214981079
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 5.91964,
+       "times_us": [
+        1936.383,
+        1907.864,
+        1908.803,
+        1885.473,
+        33948.988
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 9.215471029281616
+      }
+     ]
+    },
+    "split": {
+     "best_us": 1456.813,
+     "typical_us": 1458.762,
+     "p50_us": 35581.28,
+     "p90_us": 83118.591,
+     "min_us": 1456.813,
+     "max_us": 169835.807,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1458.762,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 5.91964,
+     "checksums": [
+      5.91964,
+      5.91964,
+      5.91964
+     ],
+     "samples_us": [
+      5114.148,
+      65282.361,
+      1456.813,
+      57324.997,
+      73745.215,
+      4021.647,
+      83118.591,
+      24420.781,
+      42286.791,
+      35581.28,
+      1524.972,
+      1471.382,
+      169835.807,
+      36032.641,
+      1458.762
+     ],
+     "proc_mins_us": [
+      1456.813,
+      4021.647,
+      1458.762
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 5.91964,
+       "times_us": [
+        5114.148,
+        65282.361,
+        1456.813,
+        57324.997,
+        73745.215
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 8.994158506393433
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 5.91964,
+       "times_us": [
+        4021.647,
+        83118.591,
+        24420.781,
+        42286.791,
+        35581.28
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 9.037175178527832
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 5.91964,
+       "times_us": [
+        1524.972,
+        1471.382,
+        169835.807,
+        36032.641,
+        1458.762
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 9.012120485305786
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 1.2975330395870985,
+   "speedup_min_vs_b0": 1.2942450403723744
+  },
+  {
+   "name": "e3_mm_softmax_k4",
+   "group": "E3",
+   "dag": "e3_mm_softmax",
+   "chunking": {
+    "mm": 4,
+    "softmax": 4
+   },
+   "note": "1:1 AIC->AIV：matmul -> softmax",
+   "variants": {
+    "serial": {
+     "best_us": 1133.012,
+     "typical_us": 1142.542,
+     "p50_us": 1160.932,
+     "p90_us": 111702.799,
+     "min_us": 1133.012,
+     "max_us": 127910.956,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1142.542,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 7.714923,
+     "checksums": [
+      7.714923,
+      7.714923,
+      7.714923
+     ],
+     "samples_us": [
+      111702.799,
+      1290.093,
+      1150.102,
+      1181.782,
+      1147.212,
+      1178.202,
+      1142.542,
+      127910.956,
+      1160.932,
+      1142.652,
+      1177.472,
+      1157.982,
+      1156.332,
+      1133.012,
+      1169.782
+     ],
+     "proc_mins_us": [
+      1147.212,
+      1142.542,
+      1133.012
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7.714923,
+       "times_us": [
+        111702.799,
+        1290.093,
+        1150.102,
+        1181.782,
+        1147.212
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 8.73945927619934
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7.714923,
+       "times_us": [
+        1178.202,
+        1142.542,
+        127910.956,
+        1160.932,
+        1142.652
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 8.257968187332153
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7.714923,
+       "times_us": [
+        1177.472,
+        1157.982,
+        1156.332,
+        1133.012,
+        1169.782
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 8.99972414970398
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 1132.252,
+     "typical_us": 1143.742,
+     "p50_us": 1152.552,
+     "p90_us": 104439.987,
+     "min_us": 1132.252,
+     "max_us": 147190.598,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1143.742,
+     "retries": 2,
+     "gate_timeouts": 0,
+     "checksum": 7.714923,
+     "checksums": [
+      7.714923,
+      7.714923,
+      7.714923
+     ],
+     "samples_us": [
+      1184.822,
+      1178.542,
+      1147.732,
+      147190.598,
+      1190.062,
+      1163.252,
+      1147.282,
+      104439.987,
+      1143.742,
+      1143.952,
+      1176.592,
+      1152.552,
+      1146.612,
+      1147.442,
+      1132.252
+     ],
+     "proc_mins_us": [
+      1147.732,
+      1143.742,
+      1132.252
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7.714923,
+       "times_us": [
+        1184.822,
+        1178.542,
+        1147.732,
+        147190.598,
+        1190.062
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 9.005138158798218
+      },
+      {
+       "attempt": 1,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 9.007141351699829
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7.714923,
+       "times_us": [
+        1163.252,
+        1147.282,
+        104439.987,
+        1143.742,
+        1143.952
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 8.981663465499878
+      },
+      {
+       "attempt": 3,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "b0_attempt03.log",
+       "sched": "b0_attempt03.sched.json",
+       "out": "b0_attempt03.out.json",
+       "wall_s": 9.002617835998535
+      },
+      {
+       "attempt": 4,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7.714923,
+       "times_us": [
+        1176.592,
+        1152.552,
+        1146.612,
+        1147.442,
+        1132.252
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt04.log",
+       "sched": "b0_attempt04.sched.json",
+       "out": "b0_attempt04.out.json",
+       "wall_s": 9.000941038131714
+      }
+     ]
+    },
+    "split": {
+     "best_us": 888.401,
+     "typical_us": 894.6215,
+     "p50_us": 21758.618,
+     "p90_us": 54690.015,
+     "min_us": 888.401,
+     "max_us": 62543.209,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 2,
+     "contaminated_processes": 1,
+     "typical_all_us": 900.842,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 7.714923,
+     "checksums": [
+      7.714923,
+      7.714923,
+      7.714923
+     ],
+     "samples_us": [
+      32286.467,
+      29914.952,
+      20031.755,
+      31961.666,
+      20079.305,
+      62543.209,
+      888.401,
+      20128.135,
+      28465.239,
+      21758.618,
+      54690.015,
+      900.842,
+      20040.515,
+      3790.217,
+      21801.878
+     ],
+     "proc_mins_us": [
+      20031.755,
+      888.401,
+      900.842
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7.714923,
+       "times_us": [
+        32286.467,
+        29914.952,
+        20031.755,
+        31961.666,
+        20079.305
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 9.007286310195923
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7.714923,
+       "times_us": [
+        62543.209,
+        888.401,
+        20128.135,
+        28465.239,
+        21758.618
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 8.98063611984253
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7.714923,
+       "times_us": [
+        54690.015,
+        900.842,
+        20040.515,
+        3790.217,
+        21801.878
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 9.02709436416626
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 1.275338501419967,
+   "speedup_min_vs_b0": 1.2744830318741198
+  },
+  {
+   "name": "e3_mm_cast_k4",
+   "group": "E3",
+   "dag": "e3_mm_cast",
+   "chunking": {
+    "mm": 4,
+    "cast": 4
+   },
+   "note": "1:1 AIC->AIV：matmul -> cast(sink)",
+   "variants": {
+    "serial": {
+     "best_us": 1018.582,
+     "typical_us": 1019.332,
+     "p50_us": 1040.881,
+     "p90_us": 1068.642,
+     "min_us": 1018.582,
+     "max_us": 1148.312,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1019.332,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 7405.689026,
+     "checksums": [
+      7405.689026,
+      7405.689026,
+      7405.689026
+     ],
+     "samples_us": [
+      1064.212,
+      1032.092,
+      1148.312,
+      1031.121,
+      1021.602,
+      1040.881,
+      1050.262,
+      1023.432,
+      1062.782,
+      1019.332,
+      1028.272,
+      1053.012,
+      1057.092,
+      1018.582,
+      1068.642
+     ],
+     "proc_mins_us": [
+      1021.602,
+      1019.332,
+      1018.582
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7405.689026,
+       "times_us": [
+        1064.212,
+        1032.092,
+        1148.312,
+        1031.121,
+        1021.602
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 8.982967376708984
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7405.689026,
+       "times_us": [
+        1040.881,
+        1050.262,
+        1023.432,
+        1062.782,
+        1019.332
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 9.006051301956177
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7405.689026,
+       "times_us": [
+        1028.272,
+        1053.012,
+        1057.092,
+        1018.582,
+        1068.642
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 9.007588624954224
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 966.291,
+     "typical_us": 979.172,
+     "p50_us": 1000.181,
+     "p90_us": 19844.105,
+     "min_us": 966.291,
+     "max_us": 92359.212,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 979.172,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 7405.689026,
+     "checksums": [
+      7405.689026,
+      7405.689026,
+      7405.689026
+     ],
+     "samples_us": [
+      19844.105,
+      979.172,
+      981.372,
+      92359.212,
+      991.611,
+      1004.561,
+      988.132,
+      1010.722,
+      973.982,
+      966.291,
+      1032.242,
+      1009.742,
+      1007.272,
+      1000.181,
+      989.732
+     ],
+     "proc_mins_us": [
+      979.172,
+      966.291,
+      989.732
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7405.689026,
+       "times_us": [
+        19844.105,
+        979.172,
+        981.372,
+        92359.212,
+        991.611
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 8.801220178604126
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7405.689026,
+       "times_us": [
+        1004.561,
+        988.132,
+        1010.722,
+        973.982,
+        966.291
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 8.201306819915771
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7405.689026,
+       "times_us": [
+        1032.242,
+        1009.742,
+        1007.272,
+        1000.181,
+        989.732
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 8.808248043060303
+      }
+     ]
+    },
+    "split": {
+     "best_us": 944.161,
+     "typical_us": 997.821,
+     "p50_us": 20093.896,
+     "p90_us": 93936.135,
+     "min_us": 944.161,
+     "max_us": 114044.83,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 997.821,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 7405.689026,
+     "checksums": [
+      7405.689026,
+      7405.689026,
+      7405.689026
+     ],
+     "samples_us": [
+      964.201,
+      44698.528,
+      38703.908,
+      944.161,
+      1038.012,
+      1005.692,
+      114044.83,
+      20093.896,
+      997.821,
+      20070.355,
+      26839.887,
+      80485.441,
+      1002.242,
+      93936.135,
+      20147.246
+     ],
+     "proc_mins_us": [
+      944.161,
+      997.821,
+      1002.242
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7405.689026,
+       "times_us": [
+        964.201,
+        44698.528,
+        38703.908,
+        944.161,
+        1038.012
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 8.181402444839478
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7405.689026,
+       "times_us": [
+        1005.692,
+        114044.83,
+        20093.896,
+        997.821,
+        20070.355
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 8.826314687728882
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 7405.689026,
+       "times_us": [
+        26839.887,
+        80485.441,
+        1002.242,
+        93936.135,
+        20147.246
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 8.989488363265991
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 1.0788223618641313,
+   "speedup_min_vs_b0": 1.023438799103119
+  },
+  {
+   "name": "e4_same_aiv_k4",
+   "group": "E4",
+   "dag": "f04_mm_fanout_c2",
+   "chunking": {
+    "mm": 4,
+    "gelu": 4,
+    "softmax": 4
+   },
+   "note": "1:N 同引擎 AIV 两个消费者，FIFO 串行（负结果）",
+   "variants": {
+    "serial": {
+     "best_us": 1406.072,
+     "typical_us": 1421.232,
+     "p50_us": 1457.373,
+     "p90_us": 1568.993,
+     "min_us": 1406.072,
+     "max_us": 130030.548,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1421.232,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 8.846179,
+     "checksums": [
+      8.846179,
+      8.846179,
+      8.846179
+     ],
+     "samples_us": [
+      1456.523,
+      1454.663,
+      1421.232,
+      130030.548,
+      1568.993,
+      1522.373,
+      1460.632,
+      1423.982,
+      1423.802,
+      1406.072,
+      1488.262,
+      1464.532,
+      1455.933,
+      1464.783,
+      1457.373
+     ],
+     "proc_mins_us": [
+      1421.232,
+      1406.072,
+      1455.933
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 8.846179,
+       "times_us": [
+        1456.523,
+        1454.663,
+        1421.232,
+        130030.548,
+        1568.993
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 8.203872203826904
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 8.846179,
+       "times_us": [
+        1522.373,
+        1460.632,
+        1423.982,
+        1423.802,
+        1406.072
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 8.799948692321777
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 8.846179,
+       "times_us": [
+        1488.262,
+        1464.532,
+        1455.933,
+        1464.783,
+        1457.373
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 9.023035049438477
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 1424.473,
+     "typical_us": 1434.043,
+     "p50_us": 1460.053,
+     "p90_us": 78057.333,
+     "min_us": 1424.473,
+     "max_us": 144719.655,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 1434.043,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 8.846179,
+     "checksums": [
+      8.846179,
+      8.846179,
+      8.846179
+     ],
+     "samples_us": [
+      1447.612,
+      1440.222,
+      1434.043,
+      1435.923,
+      1434.443,
+      1458.362,
+      1424.473,
+      144719.655,
+      78057.333,
+      1460.053,
+      1475.433,
+      1478.953,
+      1466.023,
+      1473.462,
+      1465.223
+     ],
+     "proc_mins_us": [
+      1434.043,
+      1424.473,
+      1465.223
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 8.846179,
+       "times_us": [
+        1447.612,
+        1440.222,
+        1434.043,
+        1435.923,
+        1434.443
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 8.188344478607178
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 8.846179,
+       "times_us": [
+        1458.362,
+        1424.473,
+        144719.655,
+        78057.333,
+        1460.053
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 8.993462800979614
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 8.846179,
+       "times_us": [
+        1475.433,
+        1478.953,
+        1466.023,
+        1473.462,
+        1465.223
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 9.002699136734009
+      }
+     ]
+    },
+    "split": {
+     "best_us": 1318.323,
+     "typical_us": 1322.5680000000002,
+     "p50_us": 20614.808,
+     "p90_us": 74517.527,
+     "min_us": 1318.323,
+     "max_us": 111983.236,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 2,
+     "contaminated_processes": 1,
+     "typical_all_us": 1326.813,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 8.846179,
+     "checksums": [
+      8.846179,
+      8.846179,
+      8.846179
+     ],
+     "samples_us": [
+      1341.822,
+      1330.852,
+      20614.808,
+      1326.813,
+      20423.018,
+      111983.236,
+      1331.833,
+      1318.323,
+      19827.537,
+      23132.373,
+      74517.527,
+      43216.2,
+      22136.241,
+      28375.032,
+      41811.197
+     ],
+     "proc_mins_us": [
+      1326.813,
+      1318.323,
+      22136.241
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 8.846179,
+       "times_us": [
+        1341.822,
+        1330.852,
+        20614.808,
+        1326.813,
+        20423.018
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 9.002420902252197
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 8.846179,
+       "times_us": [
+        111983.236,
+        1331.833,
+        1318.323,
+        19827.537,
+        23132.373
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 9.001261949539185
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 8.846179,
+       "times_us": [
+        74517.527,
+        43216.2,
+        22136.241,
+        28375.032,
+        41811.197
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 9.00652551651001
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 1.0665610779755794,
+   "speedup_min_vs_b0": 1.0805189623483773
+  },
+  {
+   "name": "e4_cross_hccl_k4",
+   "group": "E4",
+   "dag": "e4_mm_cross_hccl",
+   "chunking": {
+    "mm": 4,
+    "gelu": 4,
+    "ar": 4
+   },
+   "note": "1:N 跨引擎：AIC 生产者，AIV + HCCL 消费者",
+   "variants": {
+    "serial": {
+     "best_us": 8233.825,
+     "typical_us": 8242.755,
+     "p50_us": 8261.256,
+     "p90_us": 8287.616,
+     "min_us": 8233.825,
+     "max_us": 8341.166,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 8242.755,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.275085,
+     "checksums": [
+      0.275085,
+      0.275085,
+      0.275085
+     ],
+     "samples_us": [
+      8249.555,
+      8233.825,
+      8261.256,
+      8243.656,
+      8247.015,
+      8273.305,
+      8255.745,
+      8267.426,
+      8253.725,
+      8341.166,
+      8287.616,
+      8266.195,
+      8242.755,
+      8265.325,
+      8275.275
+     ],
+     "proc_mins_us": [
+      8233.825,
+      8253.725,
+      8242.755
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.275085,
+       "times_us": [
+        8249.555,
+        8233.825,
+        8261.256,
+        8243.656,
+        8247.015
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 9.000229597091675
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.275085,
+       "times_us": [
+        8273.305,
+        8255.745,
+        8267.426,
+        8253.725,
+        8341.166
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 9.008180379867554
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.275085,
+       "times_us": [
+        8287.616,
+        8266.195,
+        8242.755,
+        8265.325,
+        8275.275
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 9.00319242477417
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 7987.756,
+     "typical_us": 7995.496,
+     "p50_us": 8021.075,
+     "p90_us": 8052.345,
+     "min_us": 7987.756,
+     "max_us": 112956.123,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 7995.496,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.275085,
+     "checksums": [
+      0.275085,
+      0.275085,
+      0.275085
+     ],
+     "samples_us": [
+      8052.345,
+      8021.075,
+      8009.295,
+      8035.655,
+      8025.735,
+      8034.146,
+      8023.605,
+      8014.816,
+      8027.276,
+      7995.496,
+      112956.123,
+      7987.756,
+      7988.735,
+      8003.025,
+      7989.185
+     ],
+     "proc_mins_us": [
+      8009.295,
+      7995.496,
+      7987.756
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.275085,
+       "times_us": [
+        8052.345,
+        8021.075,
+        8009.295,
+        8035.655,
+        8025.735
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 9.00073790550232
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.275085,
+       "times_us": [
+        8034.146,
+        8023.605,
+        8014.816,
+        8027.276,
+        7995.496
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 9.00175142288208
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.275085,
+       "times_us": [
+        112956.123,
+        7987.756,
+        7988.735,
+        8003.025,
+        7989.185
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 9.002238512039185
+      }
+     ]
+    },
+    "split": {
+     "best_us": 7704.285,
+     "typical_us": 7712.074,
+     "p50_us": 7980.716,
+     "p90_us": 103558.905,
+     "min_us": 7704.285,
+     "max_us": 121123.487,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 7712.074,
+     "retries": 7,
+     "gate_timeouts": 0,
+     "checksum": 0.275085,
+     "checksums": [
+      0.275085,
+      0.275085,
+      0.275085
+     ],
+     "samples_us": [
+      7750.305,
+      7717.175,
+      15488.09,
+      7846.366,
+      103558.905,
+      8033.626,
+      56301.311,
+      7980.716,
+      7737.565,
+      7704.285,
+      121123.487,
+      7718.584,
+      66885.01,
+      7712.074,
+      57012.502
+     ],
+     "proc_mins_us": [
+      7717.175,
+      7704.285,
+      7712.074
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.275085,
+       "times_us": [
+        7750.305,
+        7717.175,
+        15488.09,
+        7846.366,
+        103558.905
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 9.784533739089966
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.275085,
+       "times_us": [
+        8033.626,
+        56301.311,
+        7980.716,
+        7737.565,
+        7704.285
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 8.999168157577515
+      },
+      {
+       "attempt": 2,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 9.201355218887329
+      },
+      {
+       "attempt": 3,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "split_attempt03.log",
+       "sched": "split_attempt03.sched.json",
+       "out": "split_attempt03.out.json",
+       "wall_s": 9.00710153579712
+      },
+      {
+       "attempt": 4,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "split_attempt04.log",
+       "sched": "split_attempt04.sched.json",
+       "out": "split_attempt04.out.json",
+       "wall_s": 9.001179933547974
+      },
+      {
+       "attempt": 5,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "split_attempt05.log",
+       "sched": "split_attempt05.sched.json",
+       "out": "split_attempt05.out.json",
+       "wall_s": 9.003440380096436
+      },
+      {
+       "attempt": 6,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "split_attempt06.log",
+       "sched": "split_attempt06.sched.json",
+       "out": "split_attempt06.out.json",
+       "wall_s": 9.721884965896606
+      },
+      {
+       "attempt": 7,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "split_attempt07.log",
+       "sched": "split_attempt07.sched.json",
+       "out": "split_attempt07.out.json",
+       "wall_s": 9.290276050567627
+      },
+      {
+       "attempt": 8,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "split_attempt08.log",
+       "sched": "split_attempt08.sched.json",
+       "out": "split_attempt08.out.json",
+       "wall_s": 8.98811411857605
+      },
+      {
+       "attempt": 9,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.275085,
+       "times_us": [
+        121123.487,
+        7718.584,
+        66885.01,
+        7712.074,
+        57012.502
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt09.log",
+       "sched": "split_attempt09.sched.json",
+       "out": "split_attempt09.out.json",
+       "wall_s": 9.011854887008667
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 1.0687331790036325,
+   "speedup_min_vs_b0": 1.0367939399957298
+  },
+  {
+   "name": "e4_cross_aicpu_k1",
+   "group": "E4",
+   "dag": "e4_mm_cross_aicpu",
+   "chunking": {
+    "mm": 4,
+    "gelu": 4
+   },
+   "note": "1:N 跨引擎：AICPU 消费者整块，探测派发粒度",
+   "variants": {
+    "serial": {
+     "best_us": 145190.71,
+     "typical_us": 145211.089,
+     "p50_us": 145667.571,
+     "p90_us": 146522.522,
+     "min_us": 145190.71,
+     "max_us": 146643.202,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 145211.089,
+     "retries": 1,
+     "gate_timeouts": 0,
+     "checksum": 0.812171,
+     "checksums": [
+      0.812171,
+      0.812171,
+      0.812171
+     ],
+     "samples_us": [
+      146643.202,
+      145190.71,
+      146522.522,
+      145667.571,
+      145754.081,
+      145913.731,
+      146120.542,
+      145252.321,
+      145768.471,
+      145356.64,
+      145211.089,
+      145922.87,
+      145598.259,
+      145212,
+      145349.68
+     ],
+     "proc_mins_us": [
+      145190.71,
+      145252.321,
+      145211.089
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        146643.202,
+        145190.71,
+        146522.522,
+        145667.571,
+        145754.081
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 10.078433990478516
+      },
+      {
+       "attempt": 1,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 9.077969789505005
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        145913.731,
+        146120.542,
+        145252.321,
+        145768.471,
+        145356.64
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 10.348377466201782
+      },
+      {
+       "attempt": 3,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        145211.089,
+        145922.87,
+        145598.259,
+        145212,
+        145349.68
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt03.log",
+       "sched": "serial_attempt03.sched.json",
+       "out": "serial_attempt03.out.json",
+       "wall_s": 10.24057149887085
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 145291.069,
+     "typical_us": 145459.629,
+     "p50_us": 145672.02,
+     "p90_us": 145794.56,
+     "min_us": 145291.069,
+     "max_us": 145810.8,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 145459.629,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.812171,
+     "checksums": [
+      0.812171,
+      0.812171,
+      0.812171
+     ],
+     "samples_us": [
+      145672.02,
+      145586.25,
+      145742.44,
+      145766.51,
+      145459.629,
+      145603.089,
+      145524.68,
+      145696.45,
+      145291.069,
+      145525.43,
+      145677,
+      145794.56,
+      145810.8,
+      145759.43,
+      145491.78
+     ],
+     "proc_mins_us": [
+      145459.629,
+      145291.069,
+      145491.78
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        145672.02,
+        145586.25,
+        145742.44,
+        145766.51,
+        145459.629
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 10.28214716911316
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        145603.089,
+        145524.68,
+        145696.45,
+        145291.069,
+        145525.43
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 10.22288179397583
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        145677,
+        145794.56,
+        145810.8,
+        145759.43,
+        145491.78
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 10.30200457572937
+      }
+     ]
+    },
+    "split": {
+     "best_us": 146380.199,
+     "typical_us": 163264.249,
+     "p50_us": 163815.412,
+     "p90_us": 187352.104,
+     "min_us": 146380.199,
+     "max_us": 188876.817,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 163264.249,
+     "retries": 1,
+     "gate_timeouts": 0,
+     "checksum": 0.812171,
+     "checksums": [
+      0.812171,
+      0.812171,
+      0.812171
+     ],
+     "samples_us": [
+      187352.104,
+      188876.817,
+      163775.912,
+      163815.412,
+      177166.006,
+      180918.511,
+      163490.23,
+      163748.291,
+      163264.249,
+      163638.02,
+      180478.36,
+      170849.822,
+      146380.199,
+      163762.99,
+      187214.112
+     ],
+     "proc_mins_us": [
+      163775.912,
+      163264.249,
+      146380.199
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        187352.104,
+        188876.817,
+        163775.912,
+        163815.412,
+        177166.006
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 10.226426601409912
+      },
+      {
+       "attempt": 1,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 10.287049055099487
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        180918.511,
+        163490.23,
+        163748.291,
+        163264.249,
+        163638.02
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 10.240645408630371
+      },
+      {
+       "attempt": 3,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        180478.36,
+        170849.822,
+        146380.199,
+        163762.99,
+        187214.112
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt03.log",
+       "sched": "split_attempt03.sched.json",
+       "out": "split_attempt03.out.json",
+       "wall_s": 10.262606143951416
+      }
+     ]
+    }
+   },
+   "checksum_ok": true,
+   "speedup_min_vs_serial": 0.9918739760696732,
+   "speedup_min_vs_b0": 0.992559581094708
+  },
+  {
+   "name": "e4_cross_aicpu_k4",
+   "group": "E4",
+   "dag": "e4_mm_cross_aicpu",
+   "chunking": {
+    "mm": 4,
+    "gelu": 4,
+    "aics": 4
+   },
+   "note": "1:N 跨引擎：AICPU 消费者切 4 块，量化派发成本",
+   "variants": {
+    "serial": {
+     "best_us": 144988.367,
+     "typical_us": 145004.757,
+     "p50_us": 145456.107,
+     "p90_us": 145590.427,
+     "min_us": 144988.367,
+     "max_us": 147563.75,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 145004.757,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.812171,
+     "checksums": [
+      0.812171,
+      0.812171,
+      0.812171
+     ],
+     "samples_us": [
+      145337.657,
+      144999.607,
+      145498.847,
+      144988.367,
+      145456.107,
+      145183.648,
+      145523.458,
+      145004.757,
+      145492.018,
+      145237.087,
+      145496.598,
+      145053.616,
+      145590.427,
+      145520.397,
+      147563.75
+     ],
+     "proc_mins_us": [
+      144988.367,
+      145004.757,
+      145053.616
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        145337.657,
+        144999.607,
+        145498.847,
+        144988.367,
+        145456.107
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt00.log",
+       "sched": "serial_attempt00.sched.json",
+       "out": "serial_attempt00.out.json",
+       "wall_s": 10.296963930130005
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        145183.648,
+        145523.458,
+        145004.757,
+        145492.018,
+        145237.087
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt01.log",
+       "sched": "serial_attempt01.sched.json",
+       "out": "serial_attempt01.out.json",
+       "wall_s": 10.24651312828064
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        145496.598,
+        145053.616,
+        145590.427,
+        145520.397,
+        147563.75
+       ],
+       "gate_timeouts": 0,
+       "log": "serial_attempt02.log",
+       "sched": "serial_attempt02.sched.json",
+       "out": "serial_attempt02.out.json",
+       "wall_s": 10.242674827575684
+      }
+     ]
+    },
+    "b0": {
+     "best_us": 145088.416,
+     "typical_us": 145167.616,
+     "p50_us": 145483.647,
+     "p90_us": 154930.353,
+     "min_us": 145088.416,
+     "max_us": 179576.317,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 145167.616,
+     "retries": 0,
+     "gate_timeouts": 0,
+     "checksum": 0.812171,
+     "checksums": [
+      0.812171,
+      0.812171,
+      0.812171
+     ],
+     "samples_us": [
+      145532.467,
+      145657.287,
+      145498.277,
+      145513.526,
+      145088.416,
+      179576.317,
+      145469.576,
+      145352.567,
+      154930.353,
+      145317.707,
+      145256.917,
+      145625.027,
+      145249.696,
+      145483.647,
+      145167.616
+     ],
+     "proc_mins_us": [
+      145088.416,
+      145317.707,
+      145167.616
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        145532.467,
+        145657.287,
+        145498.277,
+        145513.526,
+        145088.416
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt00.log",
+       "sched": "b0_attempt00.sched.json",
+       "out": "b0_attempt00.out.json",
+       "wall_s": 10.242339372634888
+      },
+      {
+       "attempt": 1,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        179576.317,
+        145469.576,
+        145352.567,
+        154930.353,
+        145317.707
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt01.log",
+       "sched": "b0_attempt01.sched.json",
+       "out": "b0_attempt01.out.json",
+       "wall_s": 10.24257755279541
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.812171,
+       "times_us": [
+        145256.917,
+        145625.027,
+        145249.696,
+        145483.647,
+        145167.616
+       ],
+       "gate_timeouts": 0,
+       "log": "b0_attempt02.log",
+       "sched": "b0_attempt02.sched.json",
+       "out": "b0_attempt02.out.json",
+       "wall_s": 10.25796103477478
+      }
+     ]
+    },
+    "split": {
+     "best_us": 146845.089,
+     "typical_us": 147007.979,
+     "p50_us": 147297.239,
+     "p90_us": 149761.394,
+     "min_us": 146845.089,
+     "max_us": 165497.371,
+     "n_samples": 15,
+     "n_processes": 3,
+     "clean_processes": 3,
+     "contaminated_processes": 0,
+     "typical_all_us": 147007.979,
+     "retries": 1,
+     "gate_timeouts": 0,
+     "checksum": 0.81313,
+     "checksums": [
+      0.81313,
+      0.81313,
+      0.81313
+     ],
+     "samples_us": [
+      147323.091,
+      147295.65,
+      146845.089,
+      149761.394,
+      147212.98,
+      147124.009,
+      147634.8,
+      165497.371,
+      147770.92,
+      147389.979,
+      147297.239,
+      149172.702,
+      147118.659,
+      147007.979,
+      147080.648
+     ],
+     "proc_mins_us": [
+      146845.089,
+      147124.009,
+      147007.979
+     ],
+     "attempts": [
+      {
+       "attempt": 0,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.81313,
+       "times_us": [
+        147323.091,
+        147295.65,
+        146845.089,
+        149761.394,
+        147212.98
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt00.log",
+       "sched": "split_attempt00.sched.json",
+       "out": "split_attempt00.out.json",
+       "wall_s": 10.278113842010498
+      },
+      {
+       "attempt": 1,
+       "exit_code": 1,
+       "accepted": false,
+       "reason": "transient",
+       "checksum": null,
+       "times_us": [],
+       "gate_timeouts": null,
+       "log": "split_attempt01.log",
+       "sched": "split_attempt01.sched.json",
+       "out": "split_attempt01.out.json",
+       "wall_s": 10.0838143825531
+      },
+      {
+       "attempt": 2,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.81313,
+       "times_us": [
+        147124.009,
+        147634.8,
+        165497.371,
+        147770.92,
+        147389.979
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt02.log",
+       "sched": "split_attempt02.sched.json",
+       "out": "split_attempt02.out.json",
+       "wall_s": 10.032328128814697
+      },
+      {
+       "attempt": 3,
+       "exit_code": 0,
+       "accepted": true,
+       "reason": "ok",
+       "checksum": 0.81313,
+       "times_us": [
+        147297.239,
+        149172.702,
+        147118.659,
+        147007.979,
+        147080.648
+       ],
+       "gate_timeouts": 0,
+       "log": "split_attempt03.log",
+       "sched": "split_attempt03.sched.json",
+       "out": "split_attempt03.out.json",
+       "wall_s": 10.10576844215393
+      }
+     ]
+    }
+   },
+   "checksum_ok": false,
+   "speedup_min_vs_serial": 0.9873559135505035,
+   "speedup_min_vs_b0": 0.9880372369824366
+  }
+ ],
+ "findings": [
+  "E3：min 口径 8/9 个 split 同时快于 serial 与 B0；typical(clean) 口径 5/9。",
+  "min 赢但 typical 未同时赢：e3_mm_gelu_k2、e3_mm_gelu_k16、e3_mm_cast_k4；best 是下界，典型口径失败说明收益不稳，不作为主结论。",
+  "E4：min 口径 2/4 个 split 同时快于 serial 与 B0；typical(clean) 口径 2/4。",
+  "checksum 不一致仅出现在 e4_cross_aicpu_k4：`custom_aicpu_scale` 只写 out[0]（整幅标量累加），按行切分后每个 tile 各写一个部分和，算子本身不满足 tile-invariance；该 case 仅作 AICPU 派发成本负结果，不参与数值等价结论。",
+  "共 9 个进程踩到设备停顿（proc min >3×全局 best），已从 typical 剔除；详见各变体 clean/dirty 列。",
+  "split 的干净进程少于 2 个的 case：e3_mm_gelu_q2、e3_mm_gelu_q4；其 typical 只由单个进程最小值构成，仅作参考。"
+ ]
+}

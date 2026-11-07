@@ -1,0 +1,70 @@
+{
+ "rows": [
+  {
+   "name": "e0_tiny_mm_gelu",
+   "expected": "accept",
+   "accepted": true,
+   "reason": ""
+  },
+  {
+   "name": "e3_ln_mm",
+   "expected": "accept",
+   "accepted": true,
+   "reason": ""
+  },
+  {
+   "name": "e9_mixed",
+   "expected": "accept",
+   "accepted": true,
+   "reason": ""
+  },
+  {
+   "name": "bad_cycle",
+   "expected": "reject",
+   "accepted": false,
+   "reason": "依赖成环: graph cycle"
+  },
+  {
+   "name": "bad_unknown_op",
+   "expected": "reject",
+   "accepted": false,
+   "reason": "mm: 不支持算子 'frobnicate'"
+  },
+  {
+   "name": "bad_shape",
+   "expected": "reject",
+   "accepted": false,
+   "reason": "mm: matmul M<=0"
+  },
+  {
+   "name": "bad_edge",
+   "expected": "reject",
+   "accepted": false,
+   "reason": "edge dst 不存在: 'missing'"
+  },
+  {
+   "name": "bad_dup_name",
+   "expected": "reject",
+   "accepted": false,
+   "reason": "节点名重复"
+  },
+  {
+   "name": "bad_attention",
+   "expected": "reject",
+   "accepted": false,
+   "reason": "attn: attention q_heads=14 不是 kv_heads=3 的整数倍"
+  },
+  {
+   "name": "aicpu_producer",
+   "expected": "accept(0-split)",
+   "accepted": true,
+   "reason": ""
+  },
+  {
+   "name": "tiny_matmul",
+   "expected": "accept(0-split)",
+   "accepted": true,
+   "reason": ""
+  }
+ ]
+}

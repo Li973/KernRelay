@@ -1,0 +1,36 @@
+{
+  "name": "e4_mm_cross_aicpu",
+  "description": "1:N 跨引擎：matmul(AIC) 同时供 gelu(AIV) 与 custom_aicpu_scale(AICPU)；AICPU 派发粒度探测",
+  "nodes": [
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {"M": 32768, "K": 1024, "N": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "gelu",
+      "op": "gelu",
+      "engine": "aiv",
+      "shape": {"rows": 32768, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "aics",
+      "op": "custom_aicpu_scale",
+      "engine": "aicpu",
+      "shape": {"rows": 32768, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 4,
+      "iters": 1,
+      "blocks": 8
+    }
+  ],
+  "edges": [
+    {"src": "mm", "dst": "gelu", "kind": "data"},
+    {"src": "mm", "dst": "aics", "kind": "data"}
+  ]
+}

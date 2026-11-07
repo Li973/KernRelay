@@ -1,0 +1,16 @@
+{
+ "arch": "qwen3_omni_moe",
+ "hidden": 2048,
+ "intermediate": 768,
+ "layers": 48,
+ "heads": 32,
+ "kv_heads": 4,
+ "head_dim": 128,
+ "experts": 128,
+ "experts_per_tok": 8,
+ "moe_intermediate": 768,
+ "shared_intermediate": 0,
+ "vocab": 152064,
+ "executable": false,
+ "reason": "MoE grouped matmul/routing not implemented in KernRelay 1.0"
+}

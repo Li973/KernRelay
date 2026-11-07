@@ -1,0 +1,97 @@
+{
+  "description": "E3 计算/计算 1:1 + E4 计算/计算 1:N；基线 serial(单流)/B0(不切分多流)/split(KernRelay)",
+  "nranks": 2,
+  "experiments": [
+    {
+      "name": "e3_mm_gelu_k2",
+      "group": "E3",
+      "dag": "f01_mm_gelu_c2",
+      "chunking": {"mm": 2, "gelu": 2},
+      "note": "1:1 AIC->AIV，q=1"
+    },
+    {
+      "name": "e3_mm_gelu_k4",
+      "group": "E3",
+      "dag": "f02_mm_gelu_c4",
+      "chunking": {"mm": 4, "gelu": 4},
+      "note": "1:1 AIC->AIV，q=1"
+    },
+    {
+      "name": "e3_mm_gelu_k8",
+      "group": "E3",
+      "dag": "f02_mm_gelu_c4",
+      "chunking": {"mm": 8, "gelu": 8},
+      "note": "1:1 AIC->AIV，q=1，细粒度"
+    },
+    {
+      "name": "e3_mm_gelu_k16",
+      "group": "E3",
+      "dag": "f02_mm_gelu_c4",
+      "chunking": {"mm": 16, "gelu": 16},
+      "note": "1:1 AIC->AIV，q=1，事件成本探测"
+    },
+    {
+      "name": "e3_mm_gelu_q2",
+      "group": "E3",
+      "dag": "f02_mm_gelu_c4",
+      "chunking": {"mm": 8, "gelu": 4},
+      "note": "1:1 AIC->AIV，消费者每块读 2 个生产者块（q=2）"
+    },
+    {
+      "name": "e3_mm_gelu_q4",
+      "group": "E3",
+      "dag": "f02_mm_gelu_c4",
+      "chunking": {"mm": 8, "gelu": 2},
+      "note": "1:1 AIC->AIV，消费者每块读 4 个生产者块（q=4）"
+    },
+    {
+      "name": "e3_ln_mm_k4",
+      "group": "E3",
+      "dag": "e3_ln_mm",
+      "chunking": {"ln": 4, "mm": 4},
+      "note": "1:1 反向边 AIV->AIC"
+    },
+    {
+      "name": "e3_mm_softmax_k4",
+      "group": "E3",
+      "dag": "e3_mm_softmax",
+      "chunking": {"mm": 4, "softmax": 4},
+      "note": "1:1 AIC->AIV：matmul -> softmax"
+    },
+    {
+      "name": "e3_mm_cast_k4",
+      "group": "E3",
+      "dag": "e3_mm_cast",
+      "chunking": {"mm": 4, "cast": 4},
+      "note": "1:1 AIC->AIV：matmul -> cast(sink)"
+    },
+    {
+      "name": "e4_same_aiv_k4",
+      "group": "E4",
+      "dag": "f04_mm_fanout_c2",
+      "chunking": {"mm": 4, "gelu": 4, "softmax": 4},
+      "note": "1:N 同引擎 AIV 两个消费者，FIFO 串行（负结果）"
+    },
+    {
+      "name": "e4_cross_hccl_k4",
+      "group": "E4",
+      "dag": "e4_mm_cross_hccl",
+      "chunking": {"mm": 4, "gelu": 4, "ar": 4},
+      "note": "1:N 跨引擎：AIC 生产者，AIV + HCCL 消费者"
+    },
+    {
+      "name": "e4_cross_aicpu_k1",
+      "group": "E4",
+      "dag": "e4_mm_cross_aicpu",
+      "chunking": {"mm": 4, "gelu": 4},
+      "note": "1:N 跨引擎：AICPU 消费者整块，探测派发粒度"
+    },
+    {
+      "name": "e4_cross_aicpu_k4",
+      "group": "E4",
+      "dag": "e4_mm_cross_aicpu",
+      "chunking": {"mm": 4, "gelu": 4, "aics": 4},
+      "note": "1:N 跨引擎：AICPU 消费者切 4 块，量化派发成本"
+    }
+  ]
+}

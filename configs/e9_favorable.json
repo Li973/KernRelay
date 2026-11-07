@@ -1,0 +1,41 @@
+{
+  "description": "E9 有利自设 DAG：两波计算/计算、计算/通信混合、真实依赖链；对比 serial/B0/split",
+  "nranks": 2,
+  "experiments": [
+    {
+      "name": "e9_two_waves_k4",
+      "group": "E9",
+      "dag": "e9_two_waves",
+      "chunking": {"mm1": 4, "gelu1": 4, "mm2": 4, "gelu2": 4},
+      "note": "两条独立 mm→gelu 链；第二波 gelu 仍可隐藏在第二波 GEMM 下"
+    },
+    {
+      "name": "e9_two_waves_k8",
+      "group": "E9",
+      "dag": "e9_two_waves",
+      "chunking": {"mm1": 8, "gelu1": 8, "mm2": 8, "gelu2": 8},
+      "note": "同 DAG 的 k=8 粒度对照"
+    },
+    {
+      "name": "e9_mixed_k4",
+      "group": "E9",
+      "dag": "e9_mixed",
+      "chunking": {"mm1": 4, "gelu1": 4, "mm2": 4},
+      "note": "第一波 AIV gelu + 第二波 HCCL partial allreduce 同时藏于 GEMM"
+    },
+    {
+      "name": "e9_chain2_k4",
+      "group": "E9",
+      "dag": "e9_chain2",
+      "chunking": {"mm1": 4, "gelu1": 4, "mm2": 4, "gelu2": 4},
+      "note": "真实依赖链 gelu→mm(K=2048)；B0 无法跨波重叠"
+    },
+    {
+      "name": "e9_chain2_k8",
+      "group": "E9",
+      "dag": "e9_chain2",
+      "chunking": {"mm1": 8, "gelu1": 8, "mm2": 8, "gelu2": 8},
+      "note": "同依赖链的 k=8 粒度对照"
+    }
+  ]
+}

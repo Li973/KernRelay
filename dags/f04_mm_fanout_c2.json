@@ -1,0 +1,59 @@
+{
+  "name": "f04_mm_fanout_c2",
+  "description": "1:2 fan-out 切分重叠：matmul 切 2 块；gelu 与 softmax 同为 AIV 流、各切 2 块，二者按 FIFO 串行但都可与 matmul 的后续块重叠",
+  "nodes": [
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {
+        "M": 32768,
+        "K": 1024,
+        "N": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "gelu",
+      "op": "gelu",
+      "engine": "aiv",
+      "shape": {
+        "rows": 32768,
+        "cols": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "softmax",
+      "op": "softmax",
+      "engine": "aiv",
+      "shape": {
+        "rows": 32768,
+        "cols": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    }
+  ],
+  "edges": [
+    {
+      "src": "mm",
+      "dst": "gelu",
+      "kind": "data"
+    },
+    {
+      "src": "mm",
+      "dst": "softmax",
+      "kind": "data"
+    }
+  ],
+  "fixed": {
+    "chunking": {
+      "mm": 2,
+      "gelu": 2,
+      "softmax": 2
+    }
+  }
+}

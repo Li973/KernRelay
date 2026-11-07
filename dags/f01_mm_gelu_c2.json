@@ -1,0 +1,42 @@
+{
+  "name": "f01_mm_gelu_c2",
+  "description": "1:1 切分重叠（compute->compute，AIC->AIV）：matmul(aic) 与 gelu(aiv) 各切 2 块，消费者块只等覆盖其输入行区间的生产者块；A 组不切、B 组按 fixed 方案",
+  "nodes": [
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {
+        "M": 32768,
+        "K": 1024,
+        "N": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "gelu",
+      "op": "gelu",
+      "engine": "aiv",
+      "shape": {
+        "rows": 32768,
+        "cols": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    }
+  ],
+  "edges": [
+    {
+      "src": "mm",
+      "dst": "gelu",
+      "kind": "data"
+    }
+  ],
+  "fixed": {
+    "chunking": {
+      "mm": 2,
+      "gelu": 2
+    }
+  }
+}

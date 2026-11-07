@@ -1,0 +1,15 @@
+{
+  "name": "e5_ar_only",
+  "description": "通信标定：单算子 allreduce 2048x2048，整幅不切分（E5 的 2048 行通信分母）",
+  "nodes": [
+    {
+      "name": "ar",
+      "op": "allreduce",
+      "engine": "hccl",
+      "shape": {"rows": 2048, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 1
+    }
+  ],
+  "edges": []
+}

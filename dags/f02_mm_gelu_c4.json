@@ -1,0 +1,42 @@
+{
+  "name": "f02_mm_gelu_c4",
+  "description": "1:1 细粒度切分重叠（AIC->AIV）：同 f01 但 matmul/gelu 各切 4 块，观察 event 开销与尾部收缩的权衡",
+  "nodes": [
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {
+        "M": 32768,
+        "K": 1024,
+        "N": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "gelu",
+      "op": "gelu",
+      "engine": "aiv",
+      "shape": {
+        "rows": 32768,
+        "cols": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    }
+  ],
+  "edges": [
+    {
+      "src": "mm",
+      "dst": "gelu",
+      "kind": "data"
+    }
+  ],
+  "fixed": {
+    "chunking": {
+      "mm": 4,
+      "gelu": 4
+    }
+  }
+}

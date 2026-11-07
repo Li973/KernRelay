@@ -1,0 +1,36 @@
+{
+  "name": "e3_mm_softmax",
+  "description": "1:1 AIC->AIV：matmul -> softmax",
+  "nodes": [
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {
+        "M": 32768,
+        "K": 1024,
+        "N": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "softmax",
+      "op": "softmax",
+      "engine": "aiv",
+      "shape": {
+        "rows": 32768,
+        "cols": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    }
+  ],
+  "edges": [
+    {
+      "src": "mm",
+      "dst": "softmax",
+      "kind": "data"
+    }
+  ]
+}

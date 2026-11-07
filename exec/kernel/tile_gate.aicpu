@@ -1,0 +1,33 @@
+#include "aicpu_api.h"
+#include "gate_args.h"
+
+extern "C" __global__ __aicpu__ uint32_t tile_gate(GateArgs *args)
+{
+    volatile uint32_t *ready = reinterpret_cast<volatile uint32_t *>(args->flagAddress);
+    uint32_t *status = reinterpret_cast<uint32_t *>(args->statusAddress);
+    const uint32_t *scratch = reinterpret_cast<const uint32_t *>(args->scratchAddress);
+    const uint64_t scratchWords = args->scratchBytes / sizeof(uint32_t);
+    uint64_t spins = 0;
+    uint32_t sink = 0;
+    while (*ready == 0 && spins++ < args->maxSpins) {
+        if ((spins & 0xffU) == 0) {
+            // 实测（Ascend 910B3 / CANN 9.0.0）：
+            //   1) 自旋中 yield 偶发触发 AICore/AIV exception，禁用；
+            //   2) AICPU 读缓存滞留 stale flag，必须大范围遍历 scratch 驱逐缓存行；
+            //   3) sweep 用 8 路独立加载摊薄访存延迟，并每迭代查 flag ——
+            //      发现延迟约等于驱逐 L2 所需的 sweep 时间（实测 ~1.5ms/gate -> ~0.2ms/gate）。
+            if (scratchWords != 0) {
+                for (uint64_t i = 0; i < scratchWords; i += 32) {
+                    sink += scratch[i] + scratch[i + 8] + scratch[i + 16] + scratch[i + 24];
+                    if (*ready != 0) break;
+                }
+            } else {
+                asm volatile("nop");
+            }
+        }
+    }
+    asm volatile("dmb ishld" ::: "memory");
+    status[0] = (*ready != 0) ? 1U : 2U; // 1: released, 2: timeout
+    AscendC::DataStoreBarrier();
+    return sink == 0xFFFFFFFFU ? 1U : 0U;
+}

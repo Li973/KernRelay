@@ -1,0 +1,25 @@
+{
+  "name": "e5_mm_ar_full",
+  "description": "计算/通信：matmul 整幅输出做 allreduce；KernRelay 同时切分 matmul 与 allreduce，逐块通信",
+  "nodes": [
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {"M": 32768, "K": 1024, "N": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "ar",
+      "op": "allreduce",
+      "engine": "hccl",
+      "shape": {"rows": 32768, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    }
+  ],
+  "edges": [
+    {"src": "mm", "dst": "ar", "kind": "data"}
+  ]
+}

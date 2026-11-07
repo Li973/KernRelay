@@ -1,0 +1,36 @@
+{
+  "name": "e3_mm_cast",
+  "description": "1:1 AIC->AIV：matmul -> cast(sink,fp32)",
+  "nodes": [
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {
+        "M": 32768,
+        "K": 1024,
+        "N": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "cast",
+      "op": "cast",
+      "engine": "aiv",
+      "shape": {
+        "rows": 32768,
+        "cols": 2048
+      },
+      "dtype": "fp16",
+      "tiles": 4
+    }
+  ],
+  "edges": [
+    {
+      "src": "mm",
+      "dst": "cast",
+      "kind": "data"
+    }
+  ]
+}

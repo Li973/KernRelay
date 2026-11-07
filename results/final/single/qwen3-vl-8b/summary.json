@@ -1,0 +1,279 @@
+{
+ "model": "<KERNRELAY_CACHE>/qwen3-vl-8b",
+ "seq": 2048,
+ "procs": 3,
+ "iters": 3,
+ "warmup": 2,
+ "modes": {
+  "serial": {
+   "runs": [
+    {
+     "mode": "serial",
+     "seq": 2048,
+     "device": 1,
+     "warmup": 2,
+     "iters": 3,
+     "best_us": 170636,
+     "typical_us": 172988,
+     "samples_us": [
+      173085,
+      172988,
+      170636
+     ],
+     "argmax": 151645,
+     "ref_argmax": 151645,
+     "maxdiff": 0.15625,
+     "abs_mean": 3.18929,
+     "flag_edges": 0,
+     "flag_timeouts": 0,
+     "host_best_us": 55114.9,
+     "host_typical_us": 56344.5,
+     "proc": 0
+    },
+    {
+     "mode": "serial",
+     "seq": 2048,
+     "device": 1,
+     "warmup": 2,
+     "iters": 3,
+     "best_us": 171309,
+     "typical_us": 172471,
+     "samples_us": [
+      171309,
+      182033,
+      172471
+     ],
+     "argmax": 151645,
+     "ref_argmax": 151645,
+     "maxdiff": 0.15625,
+     "abs_mean": 3.18929,
+     "flag_edges": 0,
+     "flag_timeouts": 0,
+     "host_best_us": 51660.3,
+     "host_typical_us": 59092.2,
+     "proc": 1
+    },
+    {
+     "mode": "serial",
+     "seq": 2048,
+     "device": 1,
+     "warmup": 2,
+     "iters": 3,
+     "best_us": 170434,
+     "typical_us": 170486,
+     "samples_us": [
+      170511,
+      170434,
+      170486
+     ],
+     "argmax": 151645,
+     "ref_argmax": 151645,
+     "maxdiff": 0.15625,
+     "abs_mean": 3.18929,
+     "flag_edges": 0,
+     "flag_timeouts": 0,
+     "host_best_us": 45135.5,
+     "host_typical_us": 45287.6,
+     "proc": 2
+    }
+   ],
+   "best_us": 170434,
+   "typical_us": 172471,
+   "all_samples": [
+    173085,
+    172988,
+    170636,
+    171309,
+    182033,
+    172471,
+    170511,
+    170434,
+    170486
+   ],
+   "host_best_us": 45135.5,
+   "host_typical_us": 56344.5,
+   "argmax_ok": true,
+   "timeouts": 0
+  },
+  "serial_fused": {
+   "runs": [
+    {
+     "mode": "serial_fused",
+     "seq": 2048,
+     "device": 1,
+     "warmup": 2,
+     "iters": 3,
+     "best_us": 170506,
+     "typical_us": 170563,
+     "samples_us": [
+      170632,
+      170563,
+      170506
+     ],
+     "argmax": 151645,
+     "ref_argmax": 151645,
+     "maxdiff": 0.107422,
+     "abs_mean": 3.14368,
+     "flag_edges": 0,
+     "flag_timeouts": 0,
+     "host_best_us": 42733,
+     "host_typical_us": 44019.3,
+     "proc": 0
+    },
+    {
+     "mode": "serial_fused",
+     "seq": 2048,
+     "device": 1,
+     "warmup": 2,
+     "iters": 3,
+     "best_us": 170208,
+     "typical_us": 170287,
+     "samples_us": [
+      170287,
+      170208,
+      170403
+     ],
+     "argmax": 151645,
+     "ref_argmax": 151645,
+     "maxdiff": 0.107422,
+     "abs_mean": 3.14368,
+     "flag_edges": 0,
+     "flag_timeouts": 0,
+     "host_best_us": 42480.4,
+     "host_typical_us": 42513.1,
+     "proc": 1
+    },
+    {
+     "mode": "serial_fused",
+     "seq": 2048,
+     "device": 1,
+     "warmup": 2,
+     "iters": 3,
+     "best_us": 170328,
+     "typical_us": 170477,
+     "samples_us": [
+      170505,
+      170477,
+      170328
+     ],
+     "argmax": 151645,
+     "ref_argmax": 151645,
+     "maxdiff": 0.107422,
+     "abs_mean": 3.14368,
+     "flag_edges": 0,
+     "flag_timeouts": 0,
+     "host_best_us": 41571.8,
+     "host_typical_us": 41678.2,
+     "proc": 2
+    }
+   ],
+   "best_us": 170208,
+   "typical_us": 170477,
+   "all_samples": [
+    170632,
+    170563,
+    170506,
+    170287,
+    170208,
+    170403,
+    170505,
+    170477,
+    170328
+   ],
+   "host_best_us": 41571.8,
+   "host_typical_us": 42513.1,
+   "argmax_ok": true,
+   "timeouts": 0
+  },
+  "graph_whole": {
+   "runs": [
+    {
+     "mode": "graph_whole",
+     "seq": 2048,
+     "device": 1,
+     "warmup": 2,
+     "iters": 3,
+     "best_us": 170108,
+     "typical_us": 170166,
+     "samples_us": [
+      170166,
+      170108,
+      170250
+     ],
+     "argmax": 151645,
+     "ref_argmax": 151645,
+     "maxdiff": 0.107422,
+     "abs_mean": 3.14368,
+     "flag_edges": 0,
+     "flag_timeouts": 0,
+     "host_best_us": 11.69,
+     "host_typical_us": 15.87,
+     "proc": 0
+    },
+    {
+     "mode": "graph_whole",
+     "seq": 2048,
+     "device": 1,
+     "warmup": 2,
+     "iters": 3,
+     "best_us": 170090,
+     "typical_us": 170273,
+     "samples_us": [
+      170090,
+      170273,
+      170289
+     ],
+     "argmax": 151645,
+     "ref_argmax": 151645,
+     "maxdiff": 0.107422,
+     "abs_mean": 3.14368,
+     "flag_edges": 0,
+     "flag_timeouts": 0,
+     "host_best_us": 43.7,
+     "host_typical_us": 65.73,
+     "proc": 1
+    },
+    {
+     "mode": "graph_whole",
+     "seq": 2048,
+     "device": 1,
+     "warmup": 2,
+     "iters": 3,
+     "best_us": 170092,
+     "typical_us": 172400,
+     "samples_us": [
+      172400,
+      170092,
+      173294
+     ],
+     "argmax": 151645,
+     "ref_argmax": 151645,
+     "maxdiff": 0.107422,
+     "abs_mean": 3.14368,
+     "flag_edges": 0,
+     "flag_timeouts": 0,
+     "host_best_us": 41.411,
+     "host_typical_us": 42.07,
+     "proc": 2
+    }
+   ],
+   "best_us": 170090,
+   "typical_us": 170273,
+   "all_samples": [
+    170166,
+    170108,
+    170250,
+    170090,
+    170273,
+    170289,
+    172400,
+    170092,
+    173294
+   ],
+   "host_best_us": 11.69,
+   "host_typical_us": 42.07,
+   "argmax_ok": true,
+   "timeouts": 0
+  }
+ }
+}

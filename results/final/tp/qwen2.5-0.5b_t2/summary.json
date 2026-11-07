@@ -1,0 +1,429 @@
+{
+ "model": "<KERNRELAY_CACHE>/qwen2.5-0.5b",
+ "seq": 2048,
+ "devices": [
+  2,
+  3
+ ],
+ "tiles": 2,
+ "procs": 3,
+ "iters": 3,
+ "warmup": 1,
+ "modes": {
+  "tp2": {
+   "runs": [
+    {
+     "mode": "tp2",
+     "seq": 2048,
+     "tiles": 1,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 40611.3,
+     "wall_typical_us": 40631.1,
+     "wall_samples_us": [
+      40679.6,
+      40631.1,
+      40611.3
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 40595.9,
+       "typical_us": 40617.4,
+       "samples_us": [
+        40668.2,
+        40617.4,
+        40595.9
+       ],
+       "argmax": 33,
+       "ref_argmax": 33,
+       "maxdiff": 0.183594,
+       "abs_mean": 1.10078,
+       "flag_edges": 194,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 36186.4,
+       "typical_us": 36269.5,
+       "samples_us": [
+        36279.4,
+        36269.5,
+        36186.4
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 0
+    },
+    {
+     "mode": "tp2",
+     "seq": 2048,
+     "tiles": 1,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 45045.6,
+     "wall_typical_us": 45145.9,
+     "wall_samples_us": [
+      45168.6,
+      45145.9,
+      45045.6
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 45024.9,
+       "typical_us": 45131,
+       "samples_us": [
+        45151.4,
+        45131,
+        45024.9
+       ],
+       "argmax": 33,
+       "ref_argmax": 33,
+       "maxdiff": 0.183594,
+       "abs_mean": 1.10078,
+       "flag_edges": 194,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 40672.8,
+       "typical_us": 40758.6,
+       "samples_us": [
+        40821.8,
+        40758.6,
+        40672.8
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 1
+    },
+    {
+     "mode": "tp2",
+     "seq": 2048,
+     "tiles": 1,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 41051.3,
+     "wall_typical_us": 48163,
+     "wall_samples_us": [
+      41051.3,
+      49309.2,
+      48163
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 41036.4,
+       "typical_us": 48098.6,
+       "samples_us": [
+        41036.4,
+        49277.4,
+        48098.6
+       ],
+       "argmax": 33,
+       "ref_argmax": 33,
+       "maxdiff": 0.183594,
+       "abs_mean": 1.10078,
+       "flag_edges": 194,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 36519.8,
+       "typical_us": 43817.7,
+       "samples_us": [
+        36519.8,
+        44879.5,
+        43817.7
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 2
+    }
+   ],
+   "best_us": 40611.3,
+   "typical_us": 41051.3,
+   "argmax": [
+    33
+   ],
+   "maxdiff": [
+    0.183594
+   ]
+  },
+  "tp2_split": {
+   "runs": [
+    {
+     "mode": "tp2_split",
+     "seq": 2048,
+     "tiles": 2,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 51909.1,
+     "wall_typical_us": 60150.1,
+     "wall_samples_us": [
+      60150.1,
+      51909.1,
+      68652.2
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 51843.9,
+       "typical_us": 60124,
+       "samples_us": [
+        60124,
+        51843.9,
+        67403.4
+       ],
+       "argmax": 33,
+       "ref_argmax": 33,
+       "maxdiff": 0.152344,
+       "abs_mean": 1.09797,
+       "flag_edges": 218,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 47536.2,
+       "typical_us": 55524,
+       "samples_us": [
+        55524,
+        47536.2,
+        62647.8
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 0
+    },
+    {
+     "mode": "tp2_split",
+     "seq": 2048,
+     "tiles": 2,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 50533.8,
+     "wall_typical_us": 77371.5,
+     "wall_samples_us": [
+      50533.8,
+      77371.5,
+      99475.1
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 50391.1,
+       "typical_us": 77319.7,
+       "samples_us": [
+        50391.1,
+        77319.7,
+        99439.6
+       ],
+       "argmax": 33,
+       "ref_argmax": 33,
+       "maxdiff": 0.152344,
+       "abs_mean": 1.09797,
+       "flag_edges": 218,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 46100.5,
+       "typical_us": 72989,
+       "samples_us": [
+        46100.5,
+        72989,
+        94970
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 1
+    },
+    {
+     "mode": "tp2_split",
+     "seq": 2048,
+     "tiles": 2,
+     "devices": [
+      2,
+      3
+     ],
+     "wall_best_us": 49368.2,
+     "wall_typical_us": 57697.3,
+     "wall_samples_us": [
+      57697.3,
+      63352,
+      49368.2
+     ],
+     "stages": [
+      {
+       "mode": "tp_rank0",
+       "seq": 2048,
+       "device": 2,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 49339,
+       "typical_us": 57669,
+       "samples_us": [
+        57669,
+        63322.7,
+        49339
+       ],
+       "argmax": 33,
+       "ref_argmax": 33,
+       "maxdiff": 0.152344,
+       "abs_mean": 1.09797,
+       "flag_edges": 218,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      },
+      {
+       "mode": "tp_rank1",
+       "seq": 2048,
+       "device": 3,
+       "warmup": 1,
+       "iters": 3,
+       "best_us": 45015.9,
+       "typical_us": 53117.5,
+       "samples_us": [
+        53117.5,
+        58812.2,
+        45015.9
+       ],
+       "argmax": -1,
+       "ref_argmax": -1,
+       "maxdiff": 0,
+       "abs_mean": 0,
+       "flag_edges": 0,
+       "flag_timeouts": 0,
+       "host_best_us": 0,
+       "host_typical_us": 0
+      }
+     ],
+     "_rc": 0,
+     "attempts": 1,
+     "proc": 2
+    }
+   ],
+   "best_us": 49368.2,
+   "typical_us": 50533.8,
+   "argmax": [
+    33
+   ],
+   "maxdiff": [
+    0.152344
+   ]
+  }
+ },
+ "split_speedup": 0.8226206343354631
+}

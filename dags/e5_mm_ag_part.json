@@ -1,0 +1,25 @@
+{
+  "name": "e5_mm_ag_part",
+  "description": "计算/通信：allgather 只读 matmul 前 2048 行；mm 切块后只需等覆盖该区间的第 0 块",
+  "nodes": [
+    {
+      "name": "mm",
+      "op": "matmul",
+      "engine": "aic",
+      "shape": {"M": 32768, "K": 1024, "N": 2048},
+      "dtype": "fp16",
+      "tiles": 4
+    },
+    {
+      "name": "ag",
+      "op": "allgather",
+      "engine": "hccl",
+      "shape": {"rows": 2048, "cols": 2048},
+      "dtype": "fp16",
+      "tiles": 1
+    }
+  ],
+  "edges": [
+    {"src": "mm", "dst": "ag", "kind": "data"}
+  ]
+}

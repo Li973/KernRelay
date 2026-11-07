@@ -1,0 +1,30 @@
+{
+  "nranks": 2,
+  "calibration": [
+    {"name": "ar_2048", "dag": "e5_ar_only", "rows": 2048},
+    {"name": "ar_32768", "dag": "e5_ar_full_only", "rows": 32768}
+  ],
+  "experiments": [
+    {"group": "E5", "name": "e5_mm_ar_part_k2", "dag": "f03_mm_ar_c4",
+     "chunking": {"mm": 2}, "comm_calib": "ar_2048",
+     "note": "allreduce 只读前 2048 行；mm 切 2 块"},
+    {"group": "E5", "name": "e5_mm_ar_part_k4", "dag": "f03_mm_ar_c4",
+     "chunking": {"mm": 4}, "comm_calib": "ar_2048",
+     "note": "allreduce 只读前 2048 行；mm 切 4 块"},
+    {"group": "E5", "name": "e5_mm_ar_part_k8", "dag": "f03_mm_ar_c4",
+     "chunking": {"mm": 8}, "comm_calib": "ar_2048",
+     "note": "allreduce 只读前 2048 行；mm 切 8 块"},
+    {"group": "E5", "name": "e5_mm_ar_part_k16", "dag": "f03_mm_ar_c4",
+     "chunking": {"mm": 16}, "comm_calib": "ar_2048",
+     "note": "allreduce 只读前 2048 行；mm 切 16 块"},
+    {"group": "E5", "name": "e5_mm_ar_full_k4", "dag": "e5_mm_ar_full",
+     "chunking": {"mm": 4, "ar": 4}, "comm_calib": "ar_32768",
+     "note": "整幅 allreduce 切 4 块，与 mm 逐块流水"},
+    {"group": "E5", "name": "e5_mm_ag_part_k4", "dag": "e5_mm_ag_part",
+     "chunking": {"mm": 4}, "comm_calib": "ar_2048",
+     "note": "allgather 只读前 2048 行；通信量按 allreduce 标定近似"},
+    {"group": "E5", "name": "e5_mm_rs_part_k4", "dag": "e5_mm_rs_part",
+     "chunking": {"mm": 4}, "comm_calib": "ar_2048",
+     "note": "reducescatter 只读前 2048 行；通信量按 allreduce 标定近似"}
+  ]
+}

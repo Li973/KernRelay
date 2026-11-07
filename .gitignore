@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+build/
+kernels/build/
+models/
+results/*
+!results/final/
+!results/final/**
+logs/
+*.log
+nohup.out
+.env
+.DS_Store
